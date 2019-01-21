@@ -130,6 +130,9 @@ a:focus{
 .topMarginOnly2 {
   margin-top: 4.16666%;
 }
+.rightMargin {
+  margin-right: 15px;
+}
 
 /* breather margins for design portfolio homepage */
 .portfolioSpacer {
