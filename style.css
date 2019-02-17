@@ -1,5 +1,8 @@
 
-/* rules to generally apply */
+/*************************************************/
+/*      universal rules to generally apply       */
+/*************************************************/
+
 body{
   margin: 0;
   padding: 0;
@@ -20,9 +23,9 @@ a:focus{
   text-decoration: none;
 }
 
-.highlight{
-  color: black;
-}
+/*************************************************/
+/*                   tools                       */
+/*************************************************/
 
 /* thin outline to show container elements */
 .outline {
@@ -32,14 +35,18 @@ a:focus{
 /* tool to centralise multiple images */
 .container{
   text-align: center;
-  height: 70px;
 }
 
-.leftContainer{
+/* tool to allow for inline-block text image controls */
+.stacker{
+  display: inline-block;
+}
+
+/* generally useful text aligners */
+.leftText{
   text-align: left;
 }
-
-.rightContainer{
+.rightText{
   text-align: right;
 }
 
@@ -49,9 +56,6 @@ a:focus{
   margin-left: auto;
   margin-right: auto;
 }
-.img {
-  display: inline-block;
-}
 
 .centerVideo{
   display: flex;
@@ -60,51 +64,36 @@ a:focus{
   width:90%;
 }
 
-/* tool to shift up navigation bar items */
-.shift{
-  position:relative;
-  top:-100px;
+/*************************************************/
+/*               titling formatting              */
+/*************************************************/
+
+/* header title */
+.header {
+  height: 80px;
 }
 
-/* non-homepage navigation bar styling */
-.navigation{
-  position:relative;
-  height: 100px;
-  z-index: 1;
-}
-
-/* header navigation spacing */
-.margin {
-  margin-left: 1.5%;
-  margin-right: 1.5%;
-}
-
-/* header navigation colouring*/
-.pink{
-  background: pink;
-}
-
-.paleBlue{
-  background: #b7dbd4;
-}
-
-.linksContainer {
-  width: 300px;
-  text-align: right;
+.titleBox{
+  display: inline-block;
+  text-align: left;
+  width: 360px;
+  height: 50px;
+  line-height: 50px;
 }
 
 .title{
-  display: inline-block;
   text-align: center;
-  width: 360px;
-  height: 40px;
-  line-height: 40px;
   font-size: 30px;
   font-weight: 800;
   font-color: black;
 }
 
-/* header navigation text*/
+/* header navigation */
+.linksContainer {
+  width: 100%;
+  text-align: right;
+}
+
 .homelinks {
   display: inline-block;
   text-align: center;
@@ -115,48 +104,48 @@ a:focus{
   font-weight: 300;
 }
 
+.highlight{
+  color: black;
+}
+
+/* captions for homepage images */
+
+.caption{
+  height: 50px;
+  letter-spacing: 4px;
+  text-align: center;
+  line-height: 15px;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+
+/*************************************************/
 /* breather margins for image pages that need it */
+/*************************************************/
 .topMargin {
   margin-top: 1.5%;
-  margin-bottom: 1.5%;
 }
-.topMarginOnly {
-  margin-top: 1.5%;
+.bottomMargin {
+  margin-bottom: 1.5%;
 }
 .topMargin2 {
   margin-top: 2.5%;
-  margin-bottom: 2.5%;
 }
-.topMarginOnly2 {
-  margin-top: 4.16666%;
+.bottomMargin2 {
+  margin-bottom: 4.16666%;
 }
 .rightMargin {
   margin-right: 15px;
 }
 
-/* breather margins for design portfolio homepage */
-.portfolioSpacer {
+/* fullpage spacer to leave breathing room for images */
+.spacer {
   margin-top: 4.16666%;
   margin-bottom: 4.16666%;
   margin-left: auto;
   margin-right: auto;
   max-width: 83.333333%;
-}
-
-/* portfolio boxes styling */
-.portfolioTextTwoline{
-  display: inline-block;
-  margin-top:30px;
-  margin-left:auto;
-  margin-right:auto;
-  width: 160px;
-  height: 50px;
-  line-height: 25px;
-  background: black;
-
-  color: #FFFFFF;
-  font-size: 18px;
-  text-align:center;
 }
 
 /* text */
@@ -168,7 +157,9 @@ a:focus{
   text-decoration: none; 
 }
 
-/* image sizing tools */
+/*************************************************/
+/*               image sizing tools              */
+/*************************************************/
 .quarter{
   width: 24%;
 }
@@ -191,37 +182,10 @@ a:focus{
   width:100%;
 }
 
-/* background images for portfolio links*/
-.estates{
-  background-image: url(assets/images/linda);
-  background-size: cover;
-}
-.access{
-  background-image: url(assets/images/ofBlood);
-  background-size: cover, contain;
-  background-repeat: no-repeat;
-  background-position: bottom;
-}
-.symbiote{
-  background-image: url(assets/images/cathy);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.paraguay{
-  background-image: url(assets/images/juliusCaesar);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.planets{
-  background-image: url(assets/images/assassins);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
 
-/* scaling tools for different devices */
+/*************************************************/
+/*                     scaling                   */
+/*************************************************/
 
 /* phone */
 @media only screen
@@ -293,7 +257,9 @@ a:focus{
     }
 }
 
-/* fonts */
+/*************************************************/
+/*                    fonts                      */
+/*************************************************/
 
 /* ultralight fonts */
 @font-face {
