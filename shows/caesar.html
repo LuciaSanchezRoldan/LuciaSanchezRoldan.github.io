@@ -6,73 +6,89 @@
 		<link rel="stylesheet" href="../style.css" type="text/css" charset="utf-8"/>
 		<style>
 			body{
-		    overflow-y: scroll;
-		    width: 100%;
+				overflow-y: scroll;
+				width: 100%;
+				background: black;
+        		color: white;
 			}
 			a:hover,
 			a:focus{
-			  color: white;
-			  text-decoration: none;
+				color: white;
+				text-decoration: none;
 			}
 			a, a {
-			  color: #2a2a2a;
-			  text-decoration: none;
+				color: #2a2a2a;
+				text-decoration: none;
 			}
 		</style>		
 	</head>
   <body>
 		
-		<div class="titleBoxShort">
-			<a class="title2" href="../index.html"> LUC&#205;A S&#193;NCHEZ ROLD&#193;N </a>
-		</div>
+    <div class="titleBoxShort whiteBg">
+		<a id="title" class="title2" href="../index.html"> LUC&#205;A S&#193;NCHEZ ROLD&#193;N </a>
+		<hr class = "style-1"></hr>
+	</div>
 		
-    <div class="container spacer">
+    <div class= 'showInfo'>
       <div class="productionTitle">JULIUS CAESAR- LIGHTING DESIGNER</div>
 			&nbsp;
       <div class="text">by William Shakespeare. Directed by Vivian Munn and designed by Laura Haag for RADA&#39;s Gielgud Theatre. </div>
       &nbsp; 
       <div class="text">Photos by Linda Carter.</div> 
-      &nbsp;
-			<div class = "full container topMargin bottomMargin">
-				<img class = "full" src="../assets/images/caesar/caesar_2.jpg" alt="Caesar2">
-			</div>
-			<div class = "full container topMargin bottomMargin">
-				<img class = "full" src="../assets/images/caesar/caesar_3.jpg" alt="Caesar3">
-			</div>
-			<div class = "full container topMargin bottomMargin">
-				<img class = "full" src="../assets/images/caesar/caesar_4.jpg" alt="Caesar4">
-			</div>
-			<div class = "full container topMargin bottomMargin">
-				<img class = "full" src="../assets/images/caesar/caesar_5.jpg" alt="Caesar5">
-			</div>
+	  &nbsp;
+	  
+	</div>
+
+    <div style= 'background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);'></div>
+
+		
+    <div class="container spacer">
+		<div class = "full container marginTop">
+			<a href="../assets/images/caesar/caesar_2.jpg"><img class = "full" src="../assets/images/caesar/caesar_2.jpg" alt="Caesar2"></a>
+		</div>
+		<div class = "full container topMargin bottomMargin">
+			<a href="../assets/images/caesar/caesar_3.jpg"><img class = "full" src="../assets/images/caesar/caesar_3.jpg" alt="Caesar3"></a>
+		</div>
+		<div class = "full container topMargin bottomMargin">
+			<a href="../assets/images/caesar/caesar_4.jpg"><img class = "full" src="../assets/images/caesar/caesar_4.jpg" alt="Caesar4"></a>
+		</div>
+		<div class = "full container topMargin bottomMargin">
+			<a href="../assets/images/caesar/caesar_5.jpg"><img class = "full" src="../assets/images/caesar/caesar_5.jpg" alt="Caesar5"></a>
+		</div>
     </div>
       
     <hr class = "style-2"></hr>
       
-		<div class="seeMore"> OTHER PROJECTS </div>	
+	<div class="seeMore"> OTHER PROJECTS </div>	
 			
-    <div class="container spacer">
-      <div class = "portfolio container stacker">
-        <a href="romeo.html"> <img class = "full" src="../assets/images/small/romeo/romeo_1.jpg" alt="Romeo"> </a>
-        <div class="smallCaption"> ROMEO AND JULIET - LIGHTING DESIGNER </div>
-      </div>
-      <div class = "portfolio container stacker">
-        <a href="linda.html"> <img class = "full" src="../assets/images/small/linda/linda_1.jpg" alt="Linda"> </a>
-        <div class="smallCaption"> LINDA - LIGHTING DESIGNER </div>
-      </div>
-      <div class = "portfolio container stacker">
-        <a href="elders.html"> <img class= "full" src="../assets/images/small/elders/elders_1.jpg" alt="Elders"> </a>
-        <div class="smallCaption"> OF BLOOD - LIGHTING DESIGNER </div>
-      </div>
-      <div class = "portfolio container stacker">
-        <a href="assassins.html"> <img class= "full" src="../assets/images/small/assassins/assassins_1.jpg" alt="Assassins"> </a>
-        <div class="smallCaption"> ASSASSINS - ASSISTANT LIGHTING DESIGNER </div>
-      </div>
-      <div class = "portfolio container stacker">
-        <a href="cathy.html"> <img class= "full" src="../assets/images/small/cathy/cathy_1.jpg" alt="Cathy"> </a>
-        <div class="smallCaption"> CATHY - LIGHTING DESIGNER </div>
-      </div>
-    </div>
+		<div class="container flex mini portfolioSpacer marginTop">
+
+			<div class="arrow">
+				<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="-3 -3 26 46">
+					<polygon id="arrow-left" onclick="leftClick()" points="0, 20, 20 0, 20, 40" />
+				</svg>
+			</div>
+
+		<div class="imageFocus">
+          <a href="romeo.html" class="imgLink" id="focus"> <img class="img" src="../assets/images/romeo/romeo_1.jpg" alt="ROMEO AND JULIET - LIGHTING DESIGNER"> </a>
+          <a href="linda.html"class="imgLink" id="focus"> <img class="img" src="../assets/images/linda/linda_1.jpg" alt="LINDA - LIGHTING DESIGNER"> </a>
+          <a href="elders.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/elders/elders_1.jpg" alt="ELDERS - LIGHTING DESIGNER"> </a>
+          <a href="assassins.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/assassins/assassins_1.jpg" alt="ASSASSINS - ASSISTANT LIGHTING DESIGNER"> </a>
+          <a href="cathy.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/cathy/cathy_1.jpg" alt="CATHY - LIGHTING DESIGNER"> </a>
+		</div>
+
+			<div class="arrow">
+				<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="-3 -3 26 46">
+					<polygon id="arrow-right" onclick="rightClick()" points="0 0, 20 20, 0 40" />
+				</svg>
+			</div>
+					
+		</div>
+
+
+		<div id="info" class="marginTop marginBottom"> stuff in here </div>
+
+		<script src="../js/gallery.js"></script>
       
     </body>
 </div>

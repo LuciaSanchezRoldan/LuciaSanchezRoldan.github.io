@@ -18,6 +18,13 @@ function init(){
         }
     });
 
+    let title = document.getElementById("title");
+
+    if(title!=undefined){
+        title.addEventListener('mouseenter', linkHover);
+        title.addEventListener('mouseleave', linkLeave);
+    }
+
     // window.addEventListener("resize",setupOffset)
 
     images = document.getElementsByClassName('imgLink');
@@ -27,6 +34,15 @@ function init(){
 
 }
 
+function linkHover(e){
+    e.target.parentElement.style.background = 'black';
+    e.target.parentElement.lastElementChild.style.border= "5px solid black"
+}
+
+function linkLeave(e){
+    e.target.parentElement.style.background = 'white';
+    e.target.parentElement.lastElementChild.style.border= "5px solid #1e1e1e"
+}
 
 function update(){
     var translateValue = 100*((images.length/2)-focusPos) - 50;

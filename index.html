@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	
 	<head>
@@ -13,8 +12,8 @@
 	</head>
 	
 	<body>
-		
-		<div class="header">
+
+        <div class="header">
 		
 			<div class="titleBox leftMargin topMargin">
 				<div class="title"> LUC&#205;A S&#193;NCHEZ ROLD&#193;N </div>
@@ -23,41 +22,45 @@
 			
 			<div class="linksContainer"> 
 				<div class="innerLinkContainer rightMargin2">
-	        <div class="homelinks highlight "> WORK </div>
-					<a class="homelinks " href="about.html"> ABOUT </a> 
-					<a class="homelinks " href="contact.html"> CONTACT </a>
-					</div>
+	            <div class="homelinks highlight "> WORK </div>
+                <a class="homelinks " href="about.html"> ABOUT </a> 
+                <a class="homelinks " href="contact.html"> CONTACT </a>
+                </div>
 			</div> 
 
-		</div>
-		
-		<hr class="style-1"></hr>
-		
-			<div class="container spacer">
-				<div class = "full container stacker ">
-					<a href="shows/romeo.html"> <img class = "full" src="assets/images/romeo/romeo_1.jpg" alt="Romeo"> </a>
-					<div class="caption topMargin"> ROMEO AND JULIET - LIGHTING DESIGNER </div>
-				</div>
-				<div class = "full container stacker topMargin">
-					<a href="shows/linda.html"> <img class = "full" src="assets/images/linda/linda_1.jpg" alt="Linda"> </a>
-					<div class="caption topMargin"> LINDA - LIGHTING DESIGNER </div>
-				</div>
-				<div class = "full container stacker topMargin">
-					<a href="shows/elders.html"> <img class= "full" src="assets/images/elders/elders_1.jpg" alt="Elders"> </a>
-					<div class="caption topMargin"> ELDERS - LIGHTING DESIGNER </div>
-				</div>
-				<div class = "full container stacker topMargin">
-					<a href="shows/assassins.html"> <img class= "full" src="assets/images/assassins/assassins_1.jpg" alt="Assassins"> </a>
-					<div class="caption topMargin"> ASSASSINS - ASSISTANT LIGHTING DESIGNER </div>
-				</div>
-				<div class = "full container stacker topMargin">
-					<a href="shows/caesar.html"> <img class= "full" src="assets/images/caesar/caesar_1.jpg" alt="Caesar"> </a>
-					<div class="caption topMargin"> JULIUS CAESAR - LIGHTING DESIGNER </div>
-				</div>
-				<div class = "full container stacker topMargin">
-					<a href="shows/cathy.html"> <img class= "full" src="assets/images/cathy/cathy_1.jpg" alt="Cathy"> </a>
-					<div class="caption topMargin"> CATHY - LIGHTING DESIGNER </div>
-				</div>
+        </div>
+        
+        <hr class="style-1"></hr>
+
+		<div class="container flex tall portfolioSpacer marginTop">
+
+			<div class="arrow">
+				<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="-3 -3 26 46">
+					<polygon id="arrow-left" onclick="leftClick()" points="0, 20, 20 0, 20, 40" />
+				</svg>
 			</div>
+
+			<div class="imageFocus">
+                <a href="shows/romeo.html" class="imgLink" id="focus"> <img class="img" src="assets/images/romeo/romeo_1.jpg" alt="ROMEO AND JULIET - LIGHTING DESIGNER"> </a>
+                <a href="shows/linda.html"class="imgLink" id="unfocus"> <img class="img" src="assets/images/linda/linda_1.jpg" alt="LINDA - LIGHTING DESIGNER"> </a>
+                <a href="shows/elders.html"class="imgLink" id="unfocus"> <img class="img" src="assets/images/elders/elders_1.jpg" alt="ELDERS - LIGHTING DESIGNER"> </a>
+                <a href="shows/assassins.html"class="imgLink" id="unfocus"> <img class="img" src="assets/images/assassins/assassins_1.jpg" alt="ASSASSINS - ASSISTANT LIGHTING DESIGNER"> </a>
+                <a href="shows/caesar.html"class="imgLink" id="unfocus"> <img class="img" src="assets/images/caesar/caesar_1.jpg" alt="JULIUS CAESAR - LIGHTING DESIGNER"> </a>
+                <a href="shows/cathy.html"class="imgLink" id="unfocus"> <img class="img" src="assets/images/cathy/cathy_1.jpg" alt="CATHY - LIGHTING DESIGNER"> </a>
+            </div>
+
+			<div class="arrow">
+				<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="-3 -3 26 46">
+					<polygon id="arrow-right" onclick="rightClick()" points="0 0, 20 20, 0 40" />
+				</svg>
+			</div>
+					
+		</div>
+
+
+		<div id="info" class="marginTop marginBottom"> stuff in here </div>
+
+		<script src="js/gallery.js"></script>
+
 	</body>
 </html>
