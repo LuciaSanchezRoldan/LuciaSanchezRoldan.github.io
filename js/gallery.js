@@ -20,7 +20,7 @@ function init(){
 
     // window.addEventListener("resize",setupOffset)
 
-    images = document.getElementsByClassName('img');
+    images = document.getElementsByClassName('imgLink');
     focusPos = Array.prototype.indexOf.call(images, images['focus']);
 
     update();

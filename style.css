@@ -32,6 +32,7 @@ a:focus {
 
 .flex{
   display: flex;
+  height: calc(100% - 250px);
 }
 
 /* tool to allow for inline-block text image controls */
@@ -92,11 +93,12 @@ hr.style-2 {
 .arrow{
   margin: auto;
   padding: 10px;
-  width: 500px;
+  width: 5%;
 }
 
 .imageFocus{
   display: flex;
+  width: 90%;
   justify-content: space-around;
   overflow: hidden;
 }
@@ -110,10 +112,14 @@ hr.style-2 {
   opacity:50%;
 }
 
-.img {
+.imgLink {
   display: inline-block;
-  width:300px;
+  height:100%;
   transition: opacity 1s, transform 1s;
+}
+
+.img{
+  height:100%;
 }
 
 /* text */
@@ -342,6 +348,16 @@ hr.style-2 {
     margin-left: auto;
     margin-right: auto;
     max-width: 66.666667%; } }
+
+/*************************************************/
+/*                 accessibility                 */
+/*************************************************/
+
+@media prefers-reduced-motion{
+  .imgLink {
+    transition: opacity 0s, transform 0s;
+  }
+}
 
 /*************************************************/
 /*                    fonts                      */
