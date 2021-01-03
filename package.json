@@ -1,0 +1,14 @@
+{
+  "name": "lucia-js",
+  "main": "my-npm-package.min.js",
+  "types": "my-npm-package.d.ts",
+  "scripts": {
+    "serve": "es-dev-server --node-resolve --watch"
+  },
+  "dependencies": {
+    "three": "^0.123.0"
+  },
+  "devDependencies": {
+    "es-dev-server": "^2.0.2"
+  }
+}
