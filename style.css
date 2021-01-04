@@ -4,6 +4,7 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: 'apercu';
   overflow-x: hidden;
 }
@@ -138,6 +139,7 @@ hr.style-2 {
 .imgLink {
   display: inline-block;
   height:100%;
+  width:100%;
   transition: opacity 1s, transform 1s;
 }
 
@@ -401,6 +403,11 @@ hr.style-2 {
   width: 100%;
 }
 
+.fullScreen {
+  width: 100%;
+  height: 100%;
+}
+
 .svgIcon {
   height: 60px;
 }
@@ -487,5 +494,3 @@ hr.style-2 {
   font-weight: 800;
   font-style: italic;
 }
-
-/*# sourceMappingURL=style.css.map */
