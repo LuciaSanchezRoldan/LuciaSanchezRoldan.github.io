@@ -1,20 +1,12 @@
 
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
 
-const scene = new THREE.Scene();
-const pickingScene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-const pickingTexture = new THREE.WebGLRenderTarget( 1, 1 );
-const renderer = new THREE.WebGLRenderer();
-var mouse = new THREE.Vector2();
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-let bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, dithering: true } );
-let material = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
-// const backgroundGeo = new THREE.BoxGeometry( 100, 100, 1 );
-const backgroundGeo = new THREE.PlaneBufferGeometry( 100 , 100 );
-const background = new THREE.Mesh( backgroundGeo, bgMaterial );
-const cube = new THREE.Mesh( geometry, material );
-var controls;
+var scene, pickingScene, camera
+var pickingTexture, renderer
+var boxGeo, bgGeo
+var bgMaterial, boxMaterial, textMaterial
+var backgroundObj, cube
+var controls, text, textGeo;
 var offset, duplicated, pickingData, cursorType, canClick, link;
 var container, spotLight, lightHelper, shadowCameraHelper;
 var width, height;
@@ -25,13 +17,47 @@ startup();
 animate();
 
 function init(){
-
     offset = new THREE.Vector3( 1, 1, 1 );
     duplicated = false;
     pickingData = [];
     cursorType = 'grab';
     canClick = false;
     link = ""
+
+    scene = new THREE.Scene();
+    pickingScene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    pickingTexture = new THREE.WebGLRenderTarget( 1, 1 );
+    renderer = new THREE.WebGLRenderer();
+
+    boxGeo = new THREE.BoxGeometry( 1, 1, 1 );
+    bgGeo = new THREE.PlaneBufferGeometry( 100 , 100 );
+
+    bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, dithering: true } );
+    boxMaterial = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
+    textMaterial = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
+
+    cube = new THREE.Mesh( boxGeo, boxMaterial );
+    backgroundObj = new THREE.Mesh( bgGeo, bgMaterial );
+
+    // const loader = new THREE.FontLoader();
+
+    // loader.load( 'node_modules/three/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+    // textGeo = new THREE.TextGeometry( 'Hello three.js!', {
+    //         font: font,
+    //         size: 8,
+    //         height: 1,
+    //         curveSegments: 12,
+    //         bevelEnabled: true,
+    //         bevelThickness: 10,
+    //         bevelSize: 8,
+    //         bevelOffset: 0,
+    //         bevelSegments: 5
+    //     } );
+    // } );
+
+    // text = new THREE.Mesh( textGeo, textMaterial );
 
     container = document.getElementById("container");
     container.appendChild( renderer.domElement );
@@ -58,7 +84,7 @@ function startup() {
     // const ambient = new THREE.AmbientLight( 0xffffff, 0.1 );
     // scene.add( ambient );
 
-    spotLight = new THREE.SpotLight( 0xffffff, 3 );
+    spotLight = new THREE.SpotLight( 0xffffff, 1 );
     spotLight.position.set( 0, 0, 10 );
     spotLight.angle = Math.PI / 8;
     spotLight.penumbra = 0;
@@ -99,8 +125,8 @@ function startup() {
     cube.castShadow = true;
     scene.add( cube );
 
-    background.receiveShadow = true;
-    scene.add( background );
+    backgroundObj.receiveShadow = true;
+    scene.add( backgroundObj );
 }
 
 function onMouseMove( e ) {
@@ -108,7 +134,7 @@ function onMouseMove( e ) {
     var x = e.clientX;
     var y = e.clientY;
 
-    var scale = 13
+    var scale = 17;
 
     spotLight.target.position.x = -scale + 2*scale*x/width;
     spotLight.target.position.y = scale -2*scale*y/height;
