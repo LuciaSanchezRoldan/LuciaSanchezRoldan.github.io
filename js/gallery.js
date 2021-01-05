@@ -25,6 +25,16 @@ function init(){
         title.addEventListener('mouseleave', linkLeave);
     }
 
+    var is_touch_device = 'ontouchstart' in document.documentElement;
+    //redirect to homepage if a touch device
+    if(is_touch_device){
+        var arrows = document.getElementsByClassName("arrow")
+        for(var i=0; i < arrows.length; i++){
+            arrows[i].style.width='15%'
+        }
+    }
+
+
     // window.addEventListener("resize",setupOffset)
 
     images = document.getElementsByClassName('imgLink');

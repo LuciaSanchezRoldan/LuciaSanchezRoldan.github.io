@@ -1,5 +1,5 @@
 
-import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
+import { TrackballControls } from './TrackballControls.js';
 
 var scene, pickingScene, camera
 var pickingTexture, renderer
