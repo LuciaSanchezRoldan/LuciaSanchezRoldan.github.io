@@ -13,7 +13,7 @@ var width, height;
 var font;
 const text ='LUCIA SANCHEZ ROLDAN';
 const text2 ='LIGHTING DESIGNER';
-const text3 ='CLICK TO ENTER';
+var text3 ='CLICK TO ENTER';
 const textPos1 = 3, textPos2 = 1, textPos3 = -8;
 const textHeight = 1.5
 const textScale1 = 1.3, textScale2 = 1, textScale3 = 1.5, textCurveSegments = 4;
@@ -76,7 +76,8 @@ function init(){
     var is_touch_device = 'ontouchstart' in document.documentElement;
     //redirect to homepage if a touch device
     if(is_touch_device){
-        clickThrough()
+        text3 ='TOUCH TO ENTER';
+        window.addEventListener( 'ontouchend', clickThrough );
     }
 
     //LIGHT
@@ -239,8 +240,27 @@ function animate() {
 }
 
 function onWindowResize() {
-    width = container.clientWidth;
-    height = container.clientHeight;
+
+    var fullsize = container.parentElement
+
+    width = fullsize.clientWidth;
+    height = fullsize.clientHeight;
+
+    if (width/height >= 0.9){
+        console.log('alright');
+        height = fullsize.clientHeight;
+    }
+    if (width/height < 0.9){
+        console.log('too narrow1');
+        height = fullsize.clientHeight*0.7
+    }
+    if (width/height < 0.82){
+        console.log('too narrow2');
+        height = fullsize.clientHeight*0.5
+    }
+
+    container.style.height = height;
+    container.style.width = width;
 
     // width = window.innerWidth;
     // height = window.innerHeight;
