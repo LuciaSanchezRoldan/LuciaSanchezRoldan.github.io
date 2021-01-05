@@ -152,6 +152,10 @@ hr.style-2 {
   height:100%;
 }
 
+.headshot{
+  width:50%;
+}
+
 /* text */
 #info{
   font-family:'Apercu';
@@ -202,16 +206,51 @@ hr.style-2 {
   color: black;
 }
 
+.title5{
+  text-align: left;
+  font-size: 25px;
+  padding-left: 9px;
+  letter-spacing: 3px;
+  font-weight: 400;
+  color: white;
+  background: black;
+}
+
 /*subtitle*/
 .subTitle {
   text-align: right;
   font-size: 15px;
-  line-height: 0px;
   letter-spacing: 1px;
   font-style: italic;
   font-weight: 300;
-  height: 1px;
   color: #1e1e1e; 
+}
+
+.statusInfo{
+  margin: auto;
+  line-height: 24px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 200;
+  color: #1e1e1e;
+}
+
+.left{
+  text-align: justify;
+}
+
+.status{
+  display: contents;
+  font-style: italic;
+  font-weight: 800;
+  color: #1e1e1e;
+}
+
+.credit{
+  text-decoration: overline 3px;
+  display: contents;
+  font-weight: 800;
+  color: black;
 }
 
 .highlight {
@@ -293,7 +332,6 @@ hr.style-2 {
   width: fit-content;
   text-align: left;
   height: 75px;
-  line-height: 50px;
 }
 
 .titleBoxShort {
@@ -328,6 +366,7 @@ hr.style-2 {
 
 .homelinks {
   display: inline-block;
+  padding: 7px;
   text-align: left;
   line-height: 15px;
   font-size: 15px;
@@ -356,10 +395,6 @@ hr.style-2 {
 
 .rightMargin {
   margin-right: 15px;
-}
-
-.rightMargin2 {
-  margin-right: 30px;
 }
 
 .leftMargin {

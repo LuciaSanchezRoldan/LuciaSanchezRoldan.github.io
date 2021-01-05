@@ -104,7 +104,7 @@ function init() {
 function loadFont() {
 
     const loader = new THREE.FontLoader();
-    loader.load( 'node_modules/three/examples/fonts/helvetiker_regular.typeface.json',  function ( response ) {
+    loader.load( 'assets/fonts/helvetiker_bold.typeface.json',  function ( response ) {
         font = response;
         createText()
     } );
