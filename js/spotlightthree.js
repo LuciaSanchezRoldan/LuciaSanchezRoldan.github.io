@@ -43,13 +43,11 @@ function init(){
 
     boxGeo = new THREE.BoxGeometry( 1, 1, 1 );
     boxMaterial = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
-    cube = new THREE.Mesh( boxGeo, boxMaterial );
-
-    //TEXTMATERIALS
+    cube = new THREE.Mesh( boxGeo, boxMaterial );    //TEXTMATERIALS
 
     textMaterials = [
         new THREE.MeshPhongMaterial( { color: 0xa9a9a9, flatShading: true } ), // front
-        new THREE.MeshPhongMaterial( { color: 0x1e1e1e } ) // side
+        new THREE.MeshPhongMaterial( { color: 0x1e1e1e, flatShading: true } ) // side
     ];
 
     //BACKGROUND
@@ -57,7 +55,7 @@ function init(){
     bgGeo = new THREE.PlaneBufferGeometry( 20 , 200 );
     bgGeo.rotateX(Math.PI/20);
 
-    bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, dithering: true } );
+    bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, flatShading: true } );
     backgroundObj = new THREE.Mesh( bgGeo, bgMaterial );
 
     //CONTROLS
@@ -93,7 +91,7 @@ function init(){
     spotLight.shadow.mapSize.height = 512;
     spotLight.shadow.camera.near = 0;
     spotLight.shadow.camera.far = 200;
-    spotLight.shadow.focus = 100;
+    spotLight.shadow.focus = 1;
 
     scene.add( spotLight );
     scene.add( spotLight.target );
