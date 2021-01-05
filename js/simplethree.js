@@ -40,24 +40,20 @@ function init(){
     cube = new THREE.Mesh( boxGeo, boxMaterial );
     backgroundObj = new THREE.Mesh( bgGeo, bgMaterial );
 
-    // const loader = new THREE.FontLoader();
+    const loader = new THREE.FontLoader();
 
-    // loader.load( 'node_modules/three/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
+    loader.load( 'node_modules/three/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
 
-    // textGeo = new THREE.TextGeometry( 'Hello three.js!', {
-    //         font: font,
-    //         size: 8,
-    //         height: 1,
-    //         curveSegments: 12,
-    //         bevelEnabled: true,
-    //         bevelThickness: 10,
-    //         bevelSize: 8,
-    //         bevelOffset: 0,
-    //         bevelSegments: 5
-    //     } );
-    // } );
+        textGeo = new THREE.TextGeometry( 'HELLO', {
+                font: font,
+                size: 1,
+                height: 1,
+                curveSegments: 12,
+            } );
+    
+    } );
 
-    // text = new THREE.Mesh( textGeo, textMaterial );
+    text = new THREE.Mesh( textGeo, textMaterial );
 
     container = document.getElementById("container");
     container.appendChild( renderer.domElement );
