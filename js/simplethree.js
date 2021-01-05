@@ -30,14 +30,14 @@ function init(){
     pickingTexture = new THREE.WebGLRenderTarget( 1, 1 );
     renderer = new THREE.WebGLRenderer();
 
-    boxGeo = new THREE.BoxGeometry( 1, 1, 1 );
-    bgGeo = new THREE.PlaneBufferGeometry( 100 , 100 );
-
-    bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, dithering: true } );
-    boxMaterial = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
     textMaterial = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
 
+    boxGeo = new THREE.BoxGeometry( 1, 1, 1 );
+    boxMaterial = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
     cube = new THREE.Mesh( boxGeo, boxMaterial );
+
+    bgGeo = new THREE.PlaneBufferGeometry( 100 , 100 );
+    bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, dithering: true } );
     backgroundObj = new THREE.Mesh( bgGeo, bgMaterial );
 
     const loader = new THREE.FontLoader();

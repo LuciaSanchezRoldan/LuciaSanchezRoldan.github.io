@@ -1,54 +1,18 @@
+import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
 
 THREE.Cache.enabled = true;
-
-let container, permalink;
-
+let container;
 let camera, cameraTarget, scene, renderer;
+let controls;
+let textMesh, textGeo, materials;
 
-let group, textMesh1, textMesh2, textGeo, materials;
+let text = "three.js";
+let font = undefined;
 
-let firstLetter = true;
-
-let text = "three.js",
-
-    bevelEnabled = false,
-
-    font = undefined,
-
-    fontName = "optimer", // helvetiker, optimer, gentilis, droid sans, droid serif
-    fontWeight = "bold"; // normal bold
-
-const height = 20,
-    size = 70,
-    hover = 30,
-
-    curveSegments = 4,
-
-    bevelThickness = 2,
-    bevelSize = 1.5;
-
-const fontMap = {
-
-    "helvetiker": 0,
-    "optimer": 1,
-    "gentilis": 2,
-    "droid/droid_sans": 3,
-    "droid/droid_serif": 4
-
-};
-
-const weightMap = {
-
-    "regular": 0,
-    "bold": 1
-
-};
-
-const reverseFontMap = [];
-const reverseWeightMap = [];
-
-for ( const i in fontMap ) reverseFontMap[ fontMap[ i ] ] = i;
-for ( const i in weightMap ) reverseWeightMap[ weightMap[ i ] ] = i;
+const   height = 20,
+        size = 70,
+        hover = 30,
+        curveSegments = 4;
 
 let targetRotation = 0;
 let targetRotationOnPointerDown = 0;
@@ -68,13 +32,11 @@ function init() {
     container = document.createElement( 'div' );
     document.body.appendChild( container );
 
-    permalink = document.getElementById( "permalink" );
-
     // CAMERA
 
     camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 1500 );
-    camera.position.set( 0, 400, 700 );
-
+    camera.position.set(0, 2, 13);
+    // camera.position.set( 0, 400, 700 );
     cameraTarget = new THREE.Vector3( 0, 150, 0 );
 
     // SCENE
@@ -85,21 +47,47 @@ function init() {
 
     // LIGHTS
 
-    const dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
-    dirLight.position.set( 0, 0, 1 ).normalize();
-    scene.add( dirLight );
+    const spotLight = new THREE.SpotLight( 0xffffff, 1 );
+    spotLight.position.set( 0, 0, 10 );
+    spotLight.angle = Math.PI / 8;
+    spotLight.penumbra = 0;
+    spotLight.decay = 1;
+    spotLight.distance = 200;
 
-    const pointLight = new THREE.PointLight( 0xffffff, 1.5 );
-    pointLight.position.set( 0, 100, 90 );
-    scene.add( pointLight );
+    spotLight.castShadow = true;
+    spotLight.shadow.mapSize.width = 512;
+    spotLight.shadow.mapSize.height = 512;
+    spotLight.shadow.camera.near = 0;
+    spotLight.shadow.camera.far = 200;
+    spotLight.shadow.focus = 1;
 
+    scene.add( spotLight );
+    scene.add( spotLight.target );
 
-    pointLight.color.setHSL( Math.random(), 1, 0.5 );
+    const ambient = new THREE.AmbientLight( 0xffffff, 0.05 );
+    scene.add( ambient );
+
+    // const dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
+    // dirLight.position.set( 0, 0, 1 ).normalize();
+    // scene.add( dirLight );
+
+    // const pointLight = new THREE.PointLight( 0xffffff, 1.5 );
+    // pointLight.position.set( 0, 100, 90 );
+    // scene.add( pointLight );
+    
+    // pointLight.color.setHSL( Math.random(), 1, 0.5 );
+
+    //MATERIALS
 
     materials = [
         new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
         new THREE.MeshPhongMaterial( { color: 0xffffff } ) // side
     ];
+
+    var bgGeo = new THREE.PlaneBufferGeometry( 100 , 100 );
+    var bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, dithering: true } );
+    var backgroundObj = new THREE.Mesh( bgGeo, bgMaterial );
+    scene.add( backgroundObj );
 
     loadFont();
 
@@ -110,19 +98,26 @@ function init() {
     renderer.setSize( window.innerWidth, window.innerHeight );
     container.appendChild( renderer.domElement );
 
+    //CONTROLS
+
+    controls = new TrackballControls( camera, renderer.domElement );
+    controls.rotateSpeed = -1.0;
+    controls.zoomSpeed = 1.2;
+    controls.panSpeed = -0.8;
+    controls.noZoom = false;
+    controls.noPan = false;
+    controls.staticMoving = true;
+    controls.dynamicDampingFactor = 0.3;
+
 }
 
 
 function loadFont() {
 
     const loader = new THREE.FontLoader();
-
     loader.load( 'node_modules/three/examples/fonts/helvetiker_regular.typeface.json',  function ( response ) {
-
         font = response;
-
         createText()
-
     } );
 
 }
@@ -132,13 +127,9 @@ function createText() {
     textGeo = new THREE.TextGeometry( text, {
 
         font: font,
-
         size: size,
         height: height,
-        curveSegments: curveSegments,
-
-        bevelThickness: bevelThickness,
-        bevelSize: bevelSize,
+        curveSegments: curveSegments
 
     } );
 
@@ -150,36 +141,32 @@ function createText() {
     // "fix" side normals by removing z-component of normals for side faces
     // (this doesn't work well for beveled geometry as then we lose nice curvature around z-axis)
 
-    if ( ! bevelEnabled ) {
+    const triangleAreaHeuristics = 0.1 * ( height * size );
 
-        const triangleAreaHeuristics = 0.1 * ( height * size );
+    for ( let i = 0; i < textGeo.faces.length; i ++ ) {
 
-        for ( let i = 0; i < textGeo.faces.length; i ++ ) {
+        const face = textGeo.faces[ i ];
 
-            const face = textGeo.faces[ i ];
+        if ( face.materialIndex == 1 ) {
 
-            if ( face.materialIndex == 1 ) {
+            for ( let j = 0; j < face.vertexNormals.length; j ++ ) {
+
+                face.vertexNormals[ j ].z = 0;
+                face.vertexNormals[ j ].normalize();
+
+            }
+
+            const va = textGeo.vertices[ face.a ];
+            const vb = textGeo.vertices[ face.b ];
+            const vc = textGeo.vertices[ face.c ];
+
+            const s = triangle.set( va, vb, vc ).getArea();
+
+            if ( s > triangleAreaHeuristics ) {
 
                 for ( let j = 0; j < face.vertexNormals.length; j ++ ) {
 
-                    face.vertexNormals[ j ].z = 0;
-                    face.vertexNormals[ j ].normalize();
-
-                }
-
-                const va = textGeo.vertices[ face.a ];
-                const vb = textGeo.vertices[ face.b ];
-                const vc = textGeo.vertices[ face.c ];
-
-                const s = triangle.set( va, vb, vc ).getArea();
-
-                if ( s > triangleAreaHeuristics ) {
-
-                    for ( let j = 0; j < face.vertexNormals.length; j ++ ) {
-
-                        face.vertexNormals[ j ].copy( face.normal );
-
-                    }
+                    face.vertexNormals[ j ].copy( face.normal );
 
                 }
 
@@ -193,18 +180,18 @@ function createText() {
 
     textGeo = new THREE.BufferGeometry().fromGeometry( textGeo );
 
-    textMesh1 = new THREE.Mesh( textGeo, materials );
+    textMesh = new THREE.Mesh( textGeo, materials );
 
-    textMesh1.position.x = centerOffset;
-    textMesh1.position.y = hover;
-    textMesh1.position.z = 0;
+    textMesh.position.x = centerOffset;
+    textMesh.position.y = hover;
+    textMesh.position.z = 0;
 
-    textMesh1.rotation.x = 0;
-    textMesh1.rotation.y = Math.PI * 2;
+    textMesh.rotation.x = 0;
+    textMesh.rotation.y = Math.PI * 2;
 
-    textMesh1.position.y = 100;
+    textMesh.position.y = 100;
 
-    scene.add( textMesh1 );
+    scene.add( textMesh );
 
 }
 
@@ -219,8 +206,8 @@ function animate() {
 function render() {
 
     camera.lookAt( cameraTarget );
-
     renderer.clear();
+    // controls.update();
     renderer.render( scene, camera );
 
 }
