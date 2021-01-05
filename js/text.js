@@ -6,12 +6,11 @@ let camera, cameraTarget, scene, renderer;
 let controls;
 let textMesh, textGeo, materials;
 
-let text = "three.js";
+let text = "LUCIA SANCHEZ ROLDAN";
 let font = undefined;
 
-const   height = 20,
-        size = 70,
-        hover = 30,
+const   height = 0.5,
+        size = 1,
         curveSegments = 4;
 
 let targetRotation = 0;
@@ -66,16 +65,6 @@ function init() {
 
     const ambient = new THREE.AmbientLight( 0xffffff, 0.05 );
     scene.add( ambient );
-
-    // const dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
-    // dirLight.position.set( 0, 0, 1 ).normalize();
-    // scene.add( dirLight );
-
-    // const pointLight = new THREE.PointLight( 0xffffff, 1.5 );
-    // pointLight.position.set( 0, 100, 90 );
-    // scene.add( pointLight );
-    
-    // pointLight.color.setHSL( Math.random(), 1, 0.5 );
 
     //MATERIALS
 
@@ -182,14 +171,7 @@ function createText() {
 
     textMesh = new THREE.Mesh( textGeo, materials );
 
-    textMesh.position.x = centerOffset;
-    textMesh.position.y = hover;
-    textMesh.position.z = 0;
-
-    textMesh.rotation.x = 0;
-    textMesh.rotation.y = Math.PI * 2;
-
-    textMesh.position.y = 100;
+    textMesh.position.y = 1;
 
     scene.add( textMesh );
 
@@ -207,7 +189,7 @@ function render() {
 
     camera.lookAt( cameraTarget );
     renderer.clear();
-    // controls.update();
+    controls.update();
     renderer.render( scene, camera );
 
 }
