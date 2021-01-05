@@ -1,13 +1,11 @@
 
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
 
-const scene = new THREE.Scene();
-var pickingScene, camera
+var scene, pickingScene, camera
 var pickingTexture, renderer
-var boxGeometry
+var boxGeo, bgGeo
 var bgMaterial, boxMaterial, textMaterial
-var backgroundGeo, background
-var cube
+var backgroundObj, cube
 var controls, text, textGeo;
 var offset, duplicated, pickingData, cursorType, canClick, link;
 var container, spotLight, lightHelper, shadowCameraHelper;
@@ -26,33 +24,33 @@ function init(){
     canClick = false;
     link = ""
 
+    scene = new THREE.Scene();
     pickingScene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
     pickingTexture = new THREE.WebGLRenderTarget( 1, 1 );
     renderer = new THREE.WebGLRenderer();
-    boxGeometry = new THREE.BoxGeometry( 1, 1, 1 );
-    bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, dithering: true } );
-    boxMaterial = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
+
     textMaterial = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
-    cube = new THREE.Mesh( boxGeometry, boxMaterial );
-    background = new THREE.Mesh( backgroundGeo, bgMaterial );
-    backgroundGeo = new THREE.PlaneBufferGeometry( 100 , 100 );
+
+    boxGeo = new THREE.BoxGeometry( 1, 1, 1 );
+    boxMaterial = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
+    cube = new THREE.Mesh( boxGeo, boxMaterial );
+
+    bgGeo = new THREE.PlaneBufferGeometry( 100 , 100 );
+    bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, dithering: true } );
+    backgroundObj = new THREE.Mesh( bgGeo, bgMaterial );
 
     const loader = new THREE.FontLoader();
 
     loader.load( 'node_modules/three/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
 
-    textGeo = new THREE.TextGeometry( 'Hello three.js!', {
-            font: font,
-            size: 8,
-            height: 1,
-            curveSegments: 12,
-            bevelEnabled: true,
-            bevelThickness: 10,
-            bevelSize: 8,
-            bevelOffset: 0,
-            bevelSegments: 5
-        } );
+        textGeo = new THREE.TextGeometry( 'HELLO', {
+                font: font,
+                size: 1,
+                height: 1,
+                curveSegments: 12,
+            } );
+    
     } );
 
     text = new THREE.Mesh( textGeo, textMaterial );
@@ -117,14 +115,14 @@ function startup() {
     shadowCameraHelper = new THREE.CameraHelper( spotLight.shadow.camera );
     scene.add( shadowCameraHelper );
 
-    text.position.set(0, 0, 3);
+    cube.position.set(0, 0, 3);
     camera.position.set(0, 2, 13);
 
-    text.castShadow = true;
-    scene.add( text );
+    cube.castShadow = true;
+    scene.add( cube );
 
-    background.receiveShadow = true;
-    scene.add( background );
+    backgroundObj.receiveShadow = true;
+    scene.add( backgroundObj );
 }
 
 function onMouseMove( e ) {
