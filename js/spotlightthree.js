@@ -11,20 +11,30 @@ var offset, duplicated, pickingData, cursorType, canClick, link;
 var container, spotLight, lightHelper, shadowCameraHelper;
 var width, height;
 var font;
-
-const   textHeight = 0.5,
-        textSize = 1,
-        textCurveSegments = 4;
+const text ='LUCIA SANCHEZ ROLDAN';
+const text2 ='LIGHTING DESIGNER';
+const text3 ='CLICK TO ENTER';
+const textPos1 = 3, textPos2 = 1, textPos3 = -8;
+const textHeight = 1.5
+const textScale1 = 1.3, textScale2 = 1, textScale3 = 1.5, textCurveSegments = 4;
 
 init();
 onWindowResize();
 startup();
 animate();
+clickThrough();
+
+function clickThrough(e){
+    if(e==undefined){
+        return;
+    }
+    window.location.href = 'main.html';
+}
 
 function init(){
 
     scene = new THREE.Scene();
-    pickingScene = new THREE.Scene();
+    scene.background = new THREE.Color( 0x1e1e1e );
     camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
     pickingTexture = new THREE.WebGLRenderTarget( 1, 1 );
     renderer = new THREE.WebGLRenderer();
@@ -38,13 +48,15 @@ function init(){
     //TEXTMATERIALS
 
     textMaterials = [
-        new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
-        new THREE.MeshPhongMaterial( { color: 0xffffff } ) // side
+        new THREE.MeshPhongMaterial( { color: 0xa9a9a9, flatShading: true } ), // front
+        new THREE.MeshPhongMaterial( { color: 0x1e1e1e } ) // side
     ];
 
     //BACKGROUND
 
-    bgGeo = new THREE.PlaneBufferGeometry( 100 , 100 );
+    bgGeo = new THREE.PlaneBufferGeometry( 20 , 200 );
+    bgGeo.rotateX(Math.PI/20);
+
     bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, dithering: true } );
     backgroundObj = new THREE.Mesh( bgGeo, bgMaterial );
 
@@ -54,65 +66,70 @@ function init(){
     controls.rotateSpeed = -1.0;
     controls.zoomSpeed = 1.2;
     controls.panSpeed = -0.8;
-    controls.noZoom = false;
-    controls.noPan = false;
+    controls.noZoom = true;
+    controls.noPan = true;
     controls.staticMoving = true;
     controls.dynamicDampingFactor = 0.3;
-    container = document.getElementById("container");
-    container.appendChild( renderer.domElement );
 
     window.addEventListener( 'resize', onWindowResize.bind(this), false );
+    window.addEventListener( 'click', clickThrough );
+    var is_touch_device = 'ontouchstart' in document.documentElement;
+    //redirect to homepage if a touch device
+    if(is_touch_device){
+        clickThrough()
+    }
 
+    //LIGHT
 
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    renderer.outputEncoding = THREE.sRGBEncoding;
-
-    // to apply renderer to the whole scene, without a container
-    // renderer.setSize( window.innerWidth, window.innerHeight );
-    // document.body.appendChild( renderer.domElement );
-
-    renderer.domElement.addEventListener( 'mousemove', onMouseMove.bind(this) );
-
-}
-
-function startup() {
-    camera.position.z = 5;
-    scene.background = new THREE.Color( 0x000000 );
-
-    spotLight = new THREE.SpotLight( 0xffffff, 1 );
+    spotLight = new THREE.SpotLight( 0xffffff, 5 );
     spotLight.position.set( 0, 0, 10 );
-    spotLight.angle = Math.PI / 8;
+    spotLight.angle = Math.PI / 6;
     spotLight.penumbra = 0;
-    spotLight.decay = 1;
+    spotLight.decay = 0;
     spotLight.distance = 200;
-
     spotLight.castShadow = true;
     spotLight.shadow.mapSize.width = 512;
     spotLight.shadow.mapSize.height = 512;
     spotLight.shadow.camera.near = 0;
     spotLight.shadow.camera.far = 200;
-    spotLight.shadow.focus = 1;
+    spotLight.shadow.focus = 100;
 
     scene.add( spotLight );
     scene.add( spotLight.target );
+
+    //RENDERER
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    container = document.getElementById("container");
+    container.appendChild( renderer.domElement );
+    renderer.domElement.addEventListener( 'mousemove', onMouseMove.bind(this) );
+
+    // to apply renderer to the whole scene, without a container
+    // renderer.setSize( window.innerWidth, window.innerHeight );
+    // document.body.appendChild( renderer.domElement );
+    // window.addEventListener( 'mousemove', onMouseMove.bind(this) );
+
+}
+
+function startup() {
 
     loadFont();
 
     const ambient = new THREE.AmbientLight( 0xffffff, 0.05 );
     scene.add( ambient );
 
-    lightHelper = new THREE.SpotLightHelper( spotLight );
-    scene.add( lightHelper );
+    // lightHelper = new THREE.SpotLightHelper( spotLight );
+    // scene.add( lightHelper );
 
-    shadowCameraHelper = new THREE.CameraHelper( spotLight.shadow.camera );
-    scene.add( shadowCameraHelper );
+    // shadowCameraHelper = new THREE.CameraHelper( spotLight.shadow.camera );
+    // scene.add( shadowCameraHelper );
 
     cube.position.set(0, 0, 3);
-    camera.position.set(0, 2, 13);
-
+    camera.position.set(0, 10, 17);
     cube.castShadow = true;
-    scene.add( cube );
+    // scene.add( cube );
 
     backgroundObj.receiveShadow = true;
     scene.add( backgroundObj );
@@ -135,17 +152,19 @@ function loadFont() {
     const loader = new THREE.FontLoader();
     loader.load( 'node_modules/three/examples/fonts/helvetiker_regular.typeface.json',  function ( response ) {
         font = response;
-        createText()
+        createText( text, textPos1, textScale1 )
+        createText( text2, textPos2, textScale2 )
+        createText( text3, textPos3, textScale3 )
     } );
 
 }
 
-function createText() {
+function createText(t, p, s) {
 
-    textGeo = new THREE.TextGeometry( 'ollo', {
+    textGeo = new THREE.TextGeometry( t, {
 
         font: font,
-        size: textSize,
+        size: s,
         height: textHeight,
         curveSegments: textCurveSegments
 
@@ -159,7 +178,7 @@ function createText() {
     // "fix" side normals by removing z-component of normals for side faces
     // (this doesn't work well for beveled geometry as then we lose nice curvature around z-axis)
 
-    const triangleAreaHeuristics = 0.1 * ( textHeight * textSize );
+    const triangleAreaHeuristics = 0.1 * ( textHeight * s );
 
     for ( let i = 0; i < textGeo.faces.length; i ++ ) {
 
@@ -197,11 +216,10 @@ function createText() {
     const centerOffset = - 0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
 
     textGeo = new THREE.BufferGeometry().fromGeometry( textGeo );
-
     textMesh = new THREE.Mesh( textGeo, textMaterials );
-
-    textMesh.position.y = 1;
-
+    textMesh.position.y = p;
+    textMesh.position.x = centerOffset;
+    // textMesh.position.z = p;
     scene.add( textMesh );
 
 }
@@ -211,8 +229,8 @@ function animate() {
     requestAnimationFrame( animate );
 
     controls.update();
-    lightHelper.update();
-    shadowCameraHelper.update();
+    // lightHelper.update();
+    // shadowCameraHelper.update();
 
     // cube.rotation.x += 0.01;
     // cube.rotation.y += 0.01;
@@ -223,6 +241,9 @@ function animate() {
 function onWindowResize() {
     width = container.clientWidth;
     height = container.clientHeight;
+
+    // width = window.innerWidth;
+    // height = window.innerHeight;
 
     camera.aspect = width / height;
     camera.updateProjectionMatrix();

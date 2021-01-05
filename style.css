@@ -102,6 +102,8 @@ hr.style-2 {
 
 #container{
   display: flex;
+  padding-bottom: 10%;
+  padding-top: 10%;
   flex-direction: row;
 }
 
@@ -406,7 +408,7 @@ hr.style-2 {
 .fullScreen {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 
 .svgIcon {
