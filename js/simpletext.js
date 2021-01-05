@@ -1,8 +1,6 @@
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
 
 let camera, scene, renderer;
-let controls;
 
 init();
 animate();
@@ -98,20 +96,9 @@ function init( ) {
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
 
-    // const controls = new OrbitControls( camera, renderer.domElement );
-    // controls.target.set( 0, 0, 0 );
-    // controls.update();
-
-    controls = new TrackballControls( camera, renderer.domElement );
-    // controls.rotateSpeed = -1.0;
-    // controls.zoomSpeed = 1.2;
-    // controls.panSpeed = -0.8;
-    // controls.noZoom = false;
-    // controls.noPan = false;
-    // controls.staticMoving = true;
-    // controls.dynamicDampingFactor = 0.3;
+    const controls = new OrbitControls( camera, renderer.domElement );
+    controls.target.set( 0, 0, 0 );
     controls.update();
-
 
     window.addEventListener( 'resize', onWindowResize, false );
 
@@ -129,7 +116,6 @@ function onWindowResize() {
 function animate() {
 
     requestAnimationFrame( animate );
-    controls.update()
     render();
 
 }
