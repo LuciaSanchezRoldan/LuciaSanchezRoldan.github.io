@@ -39,6 +39,14 @@ a:focus {
   display: flex;
 }
 
+.autoMargin{
+  margin: auto;
+}
+
+.vert{
+  flex-direction: column;
+}
+
 .tall{
   height: calc(100% - 250px);
 }
@@ -86,6 +94,15 @@ hr.style-2 {
   align-items: center;
   justify-content: center;
   width: 90%;
+}
+
+#twitter{
+  display: flex;
+}
+
+#twitter-icon{
+  width: 30px;
+  margin-right: 10px;
 }
 
 /*************************************************/
@@ -264,6 +281,22 @@ hr.style-2 {
   background:white;
 }
 
+.button{
+  display: block;
+  margin: auto;
+  padding: 10px;
+  background: black;
+  color: white;
+  width: fit-content;
+  margin-top: 30px;
+}
+
+.button:hover, .button:focus{
+  color: black;
+  background: white;
+  outline: 3px solid black;
+}
+
 /* captions for homepage images */
 .caption {
   height: 70px;
@@ -295,7 +328,6 @@ hr.style-2 {
 
 .text {
   text-align: justify;
-  font-wight: 100px;
   font-size: 15px;
   /* font-style: italic; */
   letter-spacing: 2px;

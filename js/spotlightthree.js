@@ -52,7 +52,7 @@ function init(){
 
     //BACKGROUND
 
-    bgGeo = new THREE.PlaneBufferGeometry( 20 , 200 );
+    bgGeo = new THREE.PlaneBufferGeometry( 25 , 200 );
     bgGeo.rotateX(Math.PI/20);
 
     bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, flatShading: true } );
