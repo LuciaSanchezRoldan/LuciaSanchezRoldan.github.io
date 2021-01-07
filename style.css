@@ -40,6 +40,7 @@ a:focus {
 }
 
 .fitContent{
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -215,7 +216,7 @@ hr.style-3 {
 }
 
 .inputBox:focus{
-  outline: 4px solid black;
+  outline: 5px solid black;
   border: none;
   padding: 2px;
 }
