@@ -36,16 +36,26 @@
 				<div id=emailForm>
 				</div>
 
-				<form id="my-form" action="https://formspree.io/f/mnqolpnp" method="POST">
-					<label>Your E-mail:</label>
-					<input type="email" name="email" />
-					<label>Name:</label>
-					<input type="text" name="name" />
-					<label>Message:</label>
-					<input type="text" name="message" cols="50" rows="10"/>
-					<button id="my-form-button">Send</button>
-					<p id="my-form-status"></p>
-				</form>
+				<div class="spacer fitContent">
+					<form id="my-form" action="https://formspree.io/f/mnqolpnp" method="POST">
+						<div class='formItem'>
+							<label class='formLabel'>Your E-mail:</label>
+							<input class='inputBox' type="email" name="email" />
+						</div>
+						<div class='formItem'>
+							<label class='formLabel'>Name:</label>
+							<input class='inputBox' type="text" name="name" />
+						</div>
+						<div class='formItem'>
+							<label class='formLabel'>Message:</label>
+							<textarea class='inputBox' name="message" cols="50" rows="10"></textarea>
+						</div>
+						<button id="my-form-button" class='button' >Send</button>
+						<p id="my-form-status"></p>
+					</form>
+					<hr class="style-3"></hr>
+				</div>
+
 								
 				<div class="container spacer">
 					<div class="title4"> LuciaSanchezRoldan@gmail.com</div>

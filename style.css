@@ -39,6 +39,10 @@ a:focus {
   display: flex;
 }
 
+.fitContent{
+  width: fit-content;
+}
+
 .autoMargin{
   margin: auto;
 }
@@ -80,6 +84,12 @@ hr.style-2 {
   margin-bottom: 30px;
   height: 0;
   border: 1px solid white;
+}
+
+hr.style-3 {
+  height: 0;
+  margin:0px;
+  border: 3px solid #1e1e1e;
 }
 
 /* tool to centralise 1 image wide */
@@ -188,6 +198,35 @@ hr.style-2 {
 }
 
 /*************************************************/
+/*             'e-mail form' toolkit             */
+/*************************************************/
+
+.formItem{
+  display: flex;
+  padding:10px;
+}
+
+.inputBox{
+  outline: 3px solid black;
+  border: none;
+  margin: 5px;
+  border-radius: 0%;
+  padding: 2px;
+}
+
+.inputBox:focus{
+  outline: 4px solid black;
+  border: none;
+  padding: 2px;
+}
+
+.formLabel{
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100px;
+}
+
+/*************************************************/
 /*               titling formatting              */
 /*************************************************/
 .title {
@@ -283,12 +322,13 @@ hr.style-2 {
 
 .button{
   display: block;
+  border: none;
   margin: auto;
+  margin-top: 18px;
   padding: 10px;
   background: black;
   color: white;
   width: fit-content;
-  margin-top: 30px;
 }
 
 .button:hover, .button:focus{
