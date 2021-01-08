@@ -8,7 +8,7 @@
           "message": { "type": "text", "required": true }
         },
         "actions": [
-          { "type": "email", "to": "herdofsheep@gmail.com" }
+          { "type": "email", "to": "luciasanchezroldan@gmail.com" }
         ],
         "allowExtraFields": false
       }

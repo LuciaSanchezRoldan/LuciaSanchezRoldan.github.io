@@ -329,6 +329,7 @@ hr.style-3 {
   padding: 10px;
   background: black;
   color: white;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
