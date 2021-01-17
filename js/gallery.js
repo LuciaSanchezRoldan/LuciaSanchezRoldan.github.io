@@ -51,7 +51,7 @@ function linkHover(e){
 
 function linkLeave(e){
     e.target.parentElement.style.background = 'white';
-    e.target.parentElement.lastElementChild.style.border= "5px solid #1e1e1e"
+    e.target.parentElement.lastElementChild.style.border= "5px solid #79bca0"
 }
 
 function update(){

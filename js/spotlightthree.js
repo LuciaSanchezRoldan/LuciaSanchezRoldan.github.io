@@ -47,7 +47,7 @@ function init(){
 
     textMaterials = [
         new THREE.MeshPhongMaterial( { color: 0xa9a9a9, flatShading: true } ), // front
-        new THREE.MeshPhongMaterial( { color: 0x1e1e1e, flatShading: true } ) // side
+        new THREE.MeshPhongMaterial( { color: 0x000000, flatShading: true } ) // side
     ];
 
     //BACKGROUND
