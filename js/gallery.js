@@ -10,6 +10,8 @@ update();
 
 function init(){
 
+    offset = 50
+
     document.addEventListener('keydown', function(e) {
         switch (e.key) {
             case "ArrowLeft":
@@ -44,8 +46,10 @@ function init(){
 
     //make all the images the same width so that the panning behaviour works well
     for(var i=0; i<images.length; i++){
-        images[i].firstElementChild.style.height = images[0].clientHeight
-        images[i].firstElementChild.style.width = images[0].firstElementChild.clientWidth + " px"
+        images[i].firstElementChild.style.width = "'" + images[0].firstElementChild.clientWidth + "px'"
+        if(images[i].firstElementChild.style.width == "" || images[i].firstElementChild.clientWidth == 0){
+            images[i].firstElementChild.style.width = "" + images[0].firstElementChild.clientHeight*1.3 + "px"
+        }
     }
 
     focusPos = Array.prototype.indexOf.call(images, images['focus']);
@@ -116,18 +120,19 @@ function rightClick(){
 
 function onWindowResize() {
 
-    width = window.outerWidth;
-    height = window.outerHeight;
+    width = document.getElementsByClassName('imageFocus')[0].clientWidth;
+    height = document.getElementsByClassName('imageFocus')[0].clientHeight;
 
     isMiniGallery = document.getElementsByClassName('mini').length
 
-    if (width/height < 1 && isMiniGallery > 0){
-        offset = 75
-        update();
-    }
-    else{
-        offset = 50
-        update();
-    }
+    // if (width/height < 1 && isMiniGallery == 0){
+    //     console.log('too wide')
+    //     offset = 75
+    //     update();
+    // }
+    console.log('not wide enuf')
+    offset = 50
+    update();
+    
 }
 
