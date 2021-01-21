@@ -130,9 +130,10 @@ function onWindowResize() {
     //     offset = 75
     //     update();
     // }
-    console.log('not wide enuf')
+    // console.log('not wide enuf')
+    
     offset = 50
     update();
-    
+
 }
 
