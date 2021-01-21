@@ -195,7 +195,6 @@ hr.style-4 {
 .imgLink {
   display: inline-block;
   height:100%;
-  width:100%;
   transition: opacity 1s, transform 1s;
 }
 
@@ -219,7 +218,6 @@ hr.style-4 {
   text-align: justify;
   text-align-last: center;
   z-index: 1;
-  background: white;
 }
 
 /*************************************************/
@@ -597,7 +595,6 @@ hr.style-4 {
 @media screen and (min-device-width: 1600px) {
   .portfolioSpacer {
     margin-top: 4.16666%;
-    margin-bottom: 4.16666%;
     margin-left: auto;
     margin-right: auto;
   } 

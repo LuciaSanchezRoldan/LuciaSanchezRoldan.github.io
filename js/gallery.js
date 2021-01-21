@@ -45,7 +45,7 @@ function init(){
     //make all the images the same width so that the panning behaviour works well
     for(var i=0; i<images.length; i++){
         images[i].firstElementChild.style.height = images[0].clientHeight
-        images[i].firstElementChild.style.width = "'" + images[0].firstElementChild.clientWidth + " px'"
+        images[i].firstElementChild.style.width = images[0].firstElementChild.clientWidth + " px"
     }
 
     focusPos = Array.prototype.indexOf.call(images, images['focus']);
@@ -94,15 +94,11 @@ function leftClick(){
 
     document.getElementById('arrow-right').style.visibility = 'visible';
 
-    // if (focusPos > 0){
+    images[focusPos].id = 'unfocus';
+    images[focusPos].style.zIndex = '0';
+    focusPos = focusPos - 1;
 
-        images[focusPos].id = 'unfocus';
-        images[focusPos].style.zIndex = '0';
-        focusPos = focusPos - 1;
-
-        update();
-
-    // }
+    update();
 
 }
 
@@ -110,15 +106,11 @@ function rightClick(){
 
     document.getElementById('arrow-left').style.visibility = 'visible';
 
-    // if (focusPos < images.length-1){
+    images[focusPos].id = 'unfocus';
+    images[focusPos].style.zIndex = '0';
+    focusPos = focusPos + 1;
 
-        images[focusPos].id = 'unfocus';
-        images[focusPos].style.zIndex = '0';
-        focusPos = focusPos + 1;
-
-        update();
-
-    // }
+    update();
 
 }
 
@@ -127,13 +119,13 @@ function onWindowResize() {
     width = window.outerWidth;
     height = window.outerHeight;
 
-    if (width/height < 0.9){
-        console.log('too narrow');
+    isMiniGallery = document.getElementsByClassName('mini').length
+
+    if (width/height < 1 && isMiniGallery > 0){
         offset = 75
         update();
     }
     else{
-        console.log('not too narrow');
         offset = 50
         update();
     }
