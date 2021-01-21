@@ -2,8 +2,11 @@
 
 var translateDistance;
 var images, focusPos;
+var offset = 50;
 
-init()
+init();
+onWindowResize();
+update();
 
 function init(){
 
@@ -34,13 +37,18 @@ function init(){
         }
     }
 
+    window.addEventListener( 'resize', onWindowResize.bind(this), false );
 
-    // window.addEventListener("resize",setupOffset)
 
     images = document.getElementsByClassName('imgLink');
-    focusPos = Array.prototype.indexOf.call(images, images['focus']);
 
-    update();
+    //make all the images the same width so that the panning behaviour works well
+    for(var i=0; i<images.length; i++){
+        images[i].firstElementChild.style.height = images[0].clientHeight
+        images[i].firstElementChild.style.width = "'" + images[0].firstElementChild.clientWidth + " px'"
+    }
+
+    focusPos = Array.prototype.indexOf.call(images, images['focus']);
 
 }
 
@@ -55,7 +63,11 @@ function linkLeave(e){
 }
 
 function update(){
-    var translateValue = 100*((images.length/2)-focusPos) - 50;
+
+    images[focusPos].id = 'focus';
+    images[focusPos].style.zIndex = '10';
+
+    var translateValue = 100*((images.length/2)-focusPos) - offset;
 
     if (focusPos == images.length-1){
         document.getElementById('arrow-right').style.visibility = 'hidden';
@@ -82,17 +94,15 @@ function leftClick(){
 
     document.getElementById('arrow-right').style.visibility = 'visible';
 
-    if (focusPos > 0){
+    // if (focusPos > 0){
 
         images[focusPos].id = 'unfocus';
         images[focusPos].style.zIndex = '0';
         focusPos = focusPos - 1;
-        images[focusPos].id = 'focus';
-        images[focusPos].style.zIndex = '10';
 
         update();
 
-    }
+    // }
 
 }
 
@@ -100,17 +110,32 @@ function rightClick(){
 
     document.getElementById('arrow-left').style.visibility = 'visible';
 
-    if (focusPos < images.length-1){
+    // if (focusPos < images.length-1){
 
         images[focusPos].id = 'unfocus';
         images[focusPos].style.zIndex = '0';
         focusPos = focusPos + 1;
-        images[focusPos].id = 'focus';
-        images[focusPos].style.zIndex = '10';
 
         update();
 
-    }
+    // }
 
+}
+
+function onWindowResize() {
+
+    width = window.outerWidth;
+    height = window.outerHeight;
+
+    if (width/height < 0.9){
+        console.log('too narrow');
+        offset = 75
+        update();
+    }
+    else{
+        console.log('not too narrow');
+        offset = 50
+        update();
+    }
 }
 
