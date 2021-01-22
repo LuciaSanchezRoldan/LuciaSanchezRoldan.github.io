@@ -55,8 +55,8 @@ a:focus {
 }
 
 .fitContent{
-  width: -moz-fit-content;
   width: fit-content;
+  width: -moz-fit-content;
 }
 
 .autoMargin{
