@@ -8,6 +8,7 @@
 			body{
 				overflow-y: scroll;
 				width: 100%;
+				background: darkseagreen;
 			}
 			i{
 				font-weight: 400;
@@ -20,7 +21,7 @@
 		<div class="header">
 		
 			<div class="titleBox leftMargin topMargin">
-				<div class="title"> <a class="highlight" href="main.html"> LUC&#205;A S&#193;NCHEZ ROLD&#193;N </a> </div>
+				<div class="title"> <a class="highlight" href="index.html"> LUC&#205;A S&#193;NCHEZ ROLD&#193;N </a> </div>
 				<div class="subTitle"> Lighting Designer | Lighting Programmer </div>
 			</div>
 			
@@ -29,11 +30,15 @@
 					<a class="homelinks" href="main.html"> WORK </a>
 					<div class="homelinks highlight"> ABOUT </div>
 					<a class="homelinks" href="contact.html"> CONTACT </a>
+					<a class="homelinks" href="credits.html"> CREDITS </a>
 				</div> 
 			</div>
 		
 		</div>
-		<hr class="style-4"></hr>
+
+		<div class='container'>
+			<hr class="style-4"></hr>
+		</div>
 
 		<div class="container">
 			<div class="raise spacer flex">
@@ -127,14 +132,28 @@
 			</div>
 
 		</div>
-
-		<div id="gradLayer4" class="gradLayer"></div>
 		
 		<div class="container spacer">
 			<hr class="style-4"></hr>
 			&nbsp;
 			<div class="text">Web design by <a style="text-decoration:underline" href="http://meganbat.es">Megan Bates</a></div>
 		</div>
+
+		<div id="gradLayer4" class="gradLayer"></div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<script>
+			var grad = document.getElementById("gradLayer4");
+			window.addEventListener( 'resize', thing.bind(this), false );
+
+			$(window).on('load', function(){
+				grad.style.height = document.documentElement.scrollHeight+'px';
+			})
+			function thing(){
+				grad.style.height = document.documentElement.scrollHeight+'px';
+			}
+		</script>
 		
 	</body>
 </html>

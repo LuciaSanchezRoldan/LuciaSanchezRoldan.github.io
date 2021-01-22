@@ -125,13 +125,6 @@ function onWindowResize() {
 
     isMiniGallery = document.getElementsByClassName('mini').length
 
-    // if (width/height < 1 && isMiniGallery == 0){
-    //     console.log('too wide')
-    //     offset = 75
-    //     update();
-    // }
-    // console.log('not wide enuf')
-    
     offset = 50
     update();
 
