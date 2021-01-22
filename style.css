@@ -215,6 +215,10 @@ hr.style-4 {
 
 .headshot{
   width:50%;
+  height: min-content;
+  height: -moz-min-content;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 /* text */
