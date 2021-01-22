@@ -233,6 +233,8 @@ hr.style-4 {
   text-align: justify;
   text-align-last: center;
   z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*************************************************/
