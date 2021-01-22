@@ -215,7 +215,7 @@ hr.style-4 {
 
 .headshot{
   width:50%;
-  height: min-content;
+  height: auto;
   height: -moz-min-content;
   margin-top: auto;
   margin-bottom: auto;
@@ -717,8 +717,8 @@ hr.style-4 {
   }
 
   .homelinks{
-    font-size: 30px;
-    padding: 10px;
+    font-size: 40px;
+    padding: 20px;
   }
 
   .subTitle {
