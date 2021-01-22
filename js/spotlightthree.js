@@ -14,7 +14,7 @@ var font;
 const text ='l i g h t i n g  d e s i g n e r';
 const text2 ='l i g h t i n g  p r o g r a m m e r';
 var text3 ='c l i c k  t o  e n t e r';
-var text4 = 't o u c h  t o  e n t e r'
+var text4 = ' '
 const textPos1 = 3, textPos2 = 1, textPos3 = -8;
 const textHeight = 1.5
 const textScale1 = 1.3, textScale2 = 1, textScale3 = 1.5, textCurveSegments = 4;
@@ -83,7 +83,7 @@ function init(){
     //redirect to homepage if a touch device
     if(is_touch_device){
         text3 = text4;
-        window.addEventListener( 'ontouchend', clickThrough );
+        // window.addEventListener( 'ontouchend', clickThrough );
     }
 
     //LIGHT
