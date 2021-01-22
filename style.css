@@ -346,6 +346,7 @@ hr.style-4 {
 
 .statusInfo{
   margin: auto;
+  display: table;
   line-height: 24px;
   font-size: 15px;
   letter-spacing: 1px;
@@ -458,8 +459,8 @@ hr.style-4 {
   background: #58ac89;
   color: white;
   display: table;
-  padding-right: 2px;
-  padding-left: 2px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .button:hover, .button:focus{
