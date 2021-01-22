@@ -454,8 +454,8 @@ hr.style-4 {
   padding: 10px;
   background: #58ac89;
   color: white;
-  width: -moz-fit-content;
   width: fit-content;
+  width: -moz-fit-content;
 }
 
 .button:hover, .button:focus{
@@ -531,8 +531,6 @@ hr.style-4 {
 
 .titleBox {
   display: inline-block;
-  width: -moz-fit-content;
-  width: fit-content;
   text-align: left;
   height: fit-content;
   height: -moz-fit-content;
