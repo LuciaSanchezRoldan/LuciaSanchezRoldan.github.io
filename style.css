@@ -398,8 +398,7 @@ hr.style-4 {
   color: white;
   font-weight: 900;
   background: #1e1e1e;
-  width: fit-content;
-  width: -moz-fit-content;
+  display: table;
   padding-left: 2px;
   padding-right: 2px;
 }
@@ -458,8 +457,9 @@ hr.style-4 {
   padding: 10px;
   background: #58ac89;
   color: white;
-  width: fit-content;
-  width: -moz-fit-content;
+  display: table;
+  padding-right: 2px;
+  padding-left: 2px;
 }
 
 .button:hover, .button:focus{
