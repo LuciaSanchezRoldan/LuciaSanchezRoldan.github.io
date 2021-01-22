@@ -14,10 +14,12 @@ var font;
 const text ='l i g h t i n g   d e s i g n e r';
 const text2 ='l i g h t i n g    p r o g r a m m e r';
 var text3 ='c l i c k   t o   e n t e r';
-var text4 = ' '
-const textPos1 = 3, textPos2 = 1, textPos3 = -8;
+var text4 = 't o u c h   b a n n e r '
+var text5 = 't o   e n t e r '
+const textPos1 = 3, textPos2 = 1, textPos3 = -8, textPos4 = -10;
 const textHeight = 1.5
 const textScale1 = 1.3, textScale2 = 1, textScale3 = 1.5, textCurveSegments = 4;
+var is_touch_device;
 
 var color1 = 0x58ac89;
 // var color2 = 0x2e8b57;
@@ -79,12 +81,7 @@ function init(){
 
     window.addEventListener( 'resize', onWindowResize.bind(this), false );
     window.addEventListener( 'click', clickThrough );
-    var is_touch_device = 'ontouchstart' in document.documentElement;
-    //redirect to homepage if a touch device
-    if(is_touch_device){
-        text3 = text4;
-        // window.addEventListener( 'ontouchend', clickThrough );
-    }
+    is_touch_device = 'ontouchstart' in document.documentElement;
 
     //LIGHT
 
@@ -158,7 +155,13 @@ function loadFont() {
         font = response;
         createText( text, textPos1, textScale1 )
         createText( text2, textPos2, textScale2 )
-        createText( text3, textPos3, textScale3 )
+        if(!is_touch_device){
+            createText( text3, textPos3, textScale3 )
+        }
+        if(is_touch_device){
+            createText( text4, textPos3, textScale3 )
+            createText( text5, textPos4, textScale3 )
+        }
     } );
 
 }
