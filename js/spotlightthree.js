@@ -11,9 +11,9 @@ var offset, duplicated, pickingData, cursorType, canClick, link;
 var container, spotLight, lightHelper, shadowCameraHelper;
 var width, height;
 var font;
-const text ='l i g h t i n g  d e s i g n e r';
-const text2 ='l i g h t i n g  p r o g r a m m e r';
-var text3 ='c l i c k  t o  e n t e r';
+const text ='l i g h t i n g   d e s i g n e r';
+const text2 ='l i g h t i n g    p r o g r a m m e r';
+var text3 ='c l i c k   t o   e n t e r';
 var text4 = ' '
 const textPos1 = 3, textPos2 = 1, textPos3 = -8;
 const textHeight = 1.5
@@ -60,7 +60,7 @@ function init(){
 
     //BACKGROUND
 
-    bgGeo = new THREE.PlaneBufferGeometry( 25 , 200 );
+    bgGeo = new THREE.PlaneBufferGeometry( 30 , 200 );
     bgGeo.rotateX(Math.PI/20);
 
     bgMaterial = new THREE.MeshPhongMaterial( { color: 0x1e1e1e, flatShading: true } );
