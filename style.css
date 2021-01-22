@@ -697,6 +697,26 @@ hr.style-4 {
 @media only screen
   and (max-device-width: 480px){
 
+  .column{
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .date{
+    font-size: 40px;
+    padding: 11px;
+  }
+
+  .button{
+    font-weight: 500;
+    font-size: 50px;
+  }
+
+  .statusInfo{
+    font-size: 40px;
+    line-height: 40px;
+  }
+
   .title{
     font-size: 60px;
   }
@@ -713,8 +733,8 @@ hr.style-4 {
     font-size: 40px;
   }
 
-  .marginTop{
-    margin-top: 90px;
+  .formLabel{
+    font-size: 40px;
   }
 
   .homelinks{
