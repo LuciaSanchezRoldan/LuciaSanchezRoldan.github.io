@@ -20,11 +20,11 @@ const textHeight = 1.5
 const textScale1 = 1.3, textScale2 = 1, textScale3 = 1.5, textCurveSegments = 4;
 
 var color1 = 0x58ac89;
-var color2 = 0x2e8b57;
-var color3 = 0xFF1493;
-var darkGrey = 0xa9a9a9;
+// var color2 = 0x2e8b57;
+// var color3 = 0xFF1493;
+// var darkGrey = 0xa9a9a9;
 var colorblack = 0x000000;
-var colorwhite = 0xffffff
+// var colorwhite = 0xffffff
 
 init();
 onWindowResize();
@@ -112,6 +112,7 @@ function init(){
     container = document.getElementById("container");
     container.appendChild( renderer.domElement );
     renderer.domElement.addEventListener( 'mousemove', onMouseMove.bind(this) );
+    renderer.domElement.addEventListener( 'touchmove', onMouseMove.bind(this) );
 
 }
 
@@ -137,8 +138,8 @@ function onMouseMove( e ) {
 
     var scale = 17;
 
-    spotLight.target.position.x = -scale + 2*scale*x/width;
-    spotLight.target.position.y = scale -2*scale*y/height;
+    spotLight.target.position.x = -scale + 2 * scale*x/width;
+    spotLight.target.position.y = scale -2 * scale*y/height;
 
 }
 
