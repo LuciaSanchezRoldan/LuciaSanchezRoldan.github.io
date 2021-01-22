@@ -23,13 +23,6 @@ function init(){
         }
     });
 
-    let title = document.getElementById("title");
-
-    if(title!=undefined){
-        title.addEventListener('mouseenter', linkHover);
-        title.addEventListener('mouseleave', linkLeave);
-    }
-
     var is_touch_device = 'ontouchstart' in document.documentElement;
     //redirect to homepage if a touch device
     if(is_touch_device){
@@ -54,16 +47,6 @@ function init(){
 
     focusPos = Array.prototype.indexOf.call(images, images['focus']);
 
-}
-
-function linkHover(e){
-    e.target.parentElement.style.background = 'black';
-    e.target.parentElement.lastElementChild.style.border= "5px solid black"
-}
-
-function linkLeave(e){
-    e.target.parentElement.style.background = 'white';
-    e.target.parentElement.lastElementChild.style.border= "5px solid #79bca0"
 }
 
 function update(){
