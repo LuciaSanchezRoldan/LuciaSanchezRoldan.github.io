@@ -12,3 +12,5 @@ crosscheck the gallery more on PC and different screen resolutions
 add a bit of colour
 
 add a credits page
+
+all done

@@ -30,9 +30,24 @@ a:focus {
   border: 1px solid black;
 }
 
+.raise{
+  z-index:1;
+}
+
 /* tool to centralise multiple images */
 .container {
+  display: grid;
   text-align: center; 
+}
+
+.columns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.column{
+  width:48%;
 }
 
 .flex{
@@ -77,20 +92,30 @@ a:focus {
 hr.style-1 {
   height: 0;
   margin:0px;
-  border: 5px solid #1e1e1e;
+  border: 5px solid #58ac89;
+  z-index:1
+  ;
 }
 
 hr.style-2 {
   margin-top: 30px;
   margin-bottom: 30px;
   height: 0;
-  border: 1px solid white;
+  border: 1px solid #58ac89;
 }
 
 hr.style-3 {
   height: 0;
   margin:0px;
-  border: 3px solid #1e1e1e;
+  border: 3px solid #58ac89;
+}
+
+hr.style-4 {
+  height: 0;
+  margin:0px;
+  border: 5px solid #58ac89;
+  z-index:1
+  ;
 }
 
 /* tool to centralise 1 image wide */
@@ -141,16 +166,23 @@ hr.style-3 {
 /*navigation arrows*/
 #arrow-left, #arrow-right {
   cursor: pointer;
-  /* fill:#010101 */
-  fill: white;
-  stroke: black;
-  stroke-width: 2px;
+  stroke:#58ac89;
+  stroke-width: 10px;
+}
+
+.blackArrow{
+  fill:#010101
+}
+
+.whiteArrow{
+  fill: none;
 }
 
 .arrow{
   margin: auto;
   padding: 10px;
   width: 5%;
+  z-index: 1;
 }
 
 .imageFocus{
@@ -158,6 +190,7 @@ hr.style-3 {
   width: 90%;
   justify-content: space-around;
   overflow: hidden;
+  z-index: 1;
 }
 
 #focus{
@@ -172,12 +205,12 @@ hr.style-3 {
 .imgLink {
   display: inline-block;
   height:100%;
-  width:100%;
   transition: opacity 1s, transform 1s;
 }
 
 .img{
   height:100%;
+  width:auto;
 }
 
 .headshot{
@@ -188,14 +221,13 @@ hr.style-3 {
 #info{
   font-family:'Apercu';
   letter-spacing: 3px;
-  margin-left:10%;
-  margin-right:10%;
   line-height: 1.6;
   font-weight: 500;
   font-size: 16;
   text-decoration: none; 
   text-align: justify;
   text-align-last: center;
+  z-index: 1;
 }
 
 /*************************************************/
@@ -235,15 +267,28 @@ hr.style-3 {
   font-size: 30px;
   letter-spacing: 2px;
   font-weight: 800;
-  color: black;
+  color: #79bca0;
+  z-index:1;
 }
+
+.title1{
+  font-size: 100px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #79bca0;
+}
+
 
 .title2 {
   text-align: center;
   font-size: 30px;
   letter-spacing: 2px;
   font-weight: 800;
-  color: black;
+  color: #79bca0;
+}
+
+.title2:hover, .title2:focus, .title1:hover, .title1:focus{
+  color:white;
 }
 
 .title3 {
@@ -266,11 +311,22 @@ hr.style-3 {
 .title5{
   text-align: left;
   font-size: 25px;
+  padding: 4px;
   padding-left: 9px;
   letter-spacing: 3px;
   font-weight: 400;
   color: white;
-  background: black;
+  background: #58ac89;;
+}
+
+.title6{
+  text-align: left;
+  font-size: 25px;
+  padding: 9px;
+  letter-spacing: 3px;
+  font-weight: 400;
+  color: white;
+  background: black;;
 }
 
 /*subtitle*/
@@ -280,7 +336,7 @@ hr.style-3 {
   letter-spacing: 1px;
   font-style: italic;
   font-weight: 300;
-  color: #1e1e1e; 
+  color: black; 
 }
 
 .statusInfo{
@@ -305,13 +361,81 @@ hr.style-3 {
 
 .credit{
   text-decoration: overline 3px;
-  display: contents;
+  display: initial;
   font-weight: 800;
   color: black;
 }
 
+.creditLink{
+  text-decoration: underline 3px;
+}
+
+.creditLink:hover, .creditLink:focus{
+  font-weight: 900;
+  color: #58ac89
+}
+
+.creditLink2{
+  text-decoration: underline overline 3px;
+  display: initial;
+  color: #58ac89;
+  font-weight: 800;
+}
+
+.creditLink2:hover, .creditLink2:focus{
+  font-weight: 900;
+  background: #58ac89;
+  outline:2px solid #58ac89;
+  color:white;
+}
+
+.date{
+  color: white;
+  font-weight: 900;
+  background: #1e1e1e;
+  width: fit-content;
+  width: -moz-fit-content;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.gradLayer{
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0px;
+  z-index: 0;
+}
+
+#gradLayer1{
+  background: radial-gradient(circle, rgba(198,233,208,1) 30%, rgba(0,0,0,0) 147%);
+  transform: translateX(-20%);
+  width: 130%;
+}
+
+#gradLayer2{
+  background: radial-gradient(circle, rgba(233,	198,	218,0.3) 0%, rgba(0,0,0,0) 100%);
+  width: 200%;
+  height: 210%;
+}
+
+#gradLayer3{
+  background: radial-gradient(circle, rgba(241,255,191,1) 0%, rgba(148,187,233,0) 100%); 
+  opacity: 0.5;
+  width: 300%;
+  transform: translateX(-66%);
+}
+
+#gradLayer4{
+  background: radial-gradient(circle, rgba(198,233,208,1) 30%, rgba(0,0,0,0) 147%);
+  min-height: 100%;
+  height: auto;
+  opacity: 0.5;
+}
+
 .highlight {
-  color: black; 
+  color: #79bca0; 
 }
 
 .showInfo{
@@ -327,16 +451,16 @@ hr.style-3 {
   margin: auto;
   margin-top: 18px;
   padding: 10px;
-  background: black;
+  background: #58ac89;
   color: white;
   width: -moz-fit-content;
   width: fit-content;
 }
 
 .button:hover, .button:focus{
-  color: black;
+  color: #58ac89;
   background: white;
-  outline: 3px solid black;
+  outline: 3px solid #58ac89;
 }
 
 /* captions for homepage images */
@@ -362,6 +486,7 @@ hr.style-3 {
 
 /* text for production pages */
 .productionTitle {
+  color:#58ac89;
   text-align: left;
   font-size: 20px;
   letter-spacing: 2px;
@@ -378,6 +503,7 @@ hr.style-3 {
 }
 
 .seeMore {
+  color:#58ac89;
   margin-top: 40px;
   text-align: center;
   font-size: 30px;
@@ -407,6 +533,7 @@ hr.style-3 {
   width: fit-content;
   text-align: left;
   height: 75px;
+  z-index: 1;
 }
 
 .titleBoxShort {
@@ -414,6 +541,15 @@ hr.style-3 {
   padding-top: 5px;
   position: fixed;
   text-align: center;
+}
+
+.titleBoxIndex{
+  width: 100%;
+  padding-top: 15px;
+  font-size: 100px;
+  position: fixed;
+  text-align: center;
+  z-index: 1;
 }
 
 .whiteBg{
@@ -433,6 +569,7 @@ hr.style-3 {
 .linksContainer {
   width: 100%;
   text-align: right;
+  z-index: 1;
 }
 
 .innerLinkContainer {
@@ -521,6 +658,7 @@ hr.style-3 {
   background: #0f0f0f;
   width: 100%;
   height: 100%;
+  z-index: -1;
 }
 
 .svgIcon {
@@ -538,10 +676,8 @@ hr.style-3 {
 @media screen and (min-device-width: 1600px) {
   .portfolioSpacer {
     margin-top: 4.16666%;
-    margin-bottom: 4.16666%;
     margin-left: auto;
     margin-right: auto;
-    max-width: 66.666667%;
   } 
   .arrow{
     margin: auto;

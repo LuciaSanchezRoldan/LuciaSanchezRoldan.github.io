@@ -11,12 +11,20 @@ var offset, duplicated, pickingData, cursorType, canClick, link;
 var container, spotLight, lightHelper, shadowCameraHelper;
 var width, height;
 var font;
-const text ='LUCIA SANCHEZ ROLDAN';
-const text2 ='LIGHTING DESIGNER';
-var text3 ='CLICK TO ENTER';
+const text ='l i g h t i n g  d e s i g n e r';
+const text2 ='l i g h t i n g  p r o g r a m m e r';
+var text3 ='c l i c k  t o  e n t e r';
+var text4 = ' '
 const textPos1 = 3, textPos2 = 1, textPos3 = -8;
 const textHeight = 1.5
 const textScale1 = 1.3, textScale2 = 1, textScale3 = 1.5, textCurveSegments = 4;
+
+var color1 = 0x58ac89;
+var color2 = 0x2e8b57;
+var color3 = 0xFF1493;
+var darkGrey = 0xa9a9a9;
+var colorblack = 0x000000;
+var colorwhite = 0xffffff
 
 init();
 onWindowResize();
@@ -34,7 +42,7 @@ function clickThrough(e){
 function init(){
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color( 0x1e1e1e );
+    scene.background = new THREE.Color( color1 );
     camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
     pickingTexture = new THREE.WebGLRenderTarget( 1, 1 );
     renderer = new THREE.WebGLRenderer();
@@ -42,12 +50,12 @@ function init(){
     //BOXOBJECT
 
     boxGeo = new THREE.BoxGeometry( 1, 1, 1 );
-    boxMaterial = new THREE.MeshPhongMaterial( { color: 0xFF1493, dithering: true } );
+    boxMaterial = new THREE.MeshPhongMaterial( { color: color1, dithering: true } );
     cube = new THREE.Mesh( boxGeo, boxMaterial );    //TEXTMATERIALS
 
     textMaterials = [
-        new THREE.MeshPhongMaterial( { color: 0xa9a9a9, flatShading: true } ), // front
-        new THREE.MeshPhongMaterial( { color: 0x1e1e1e, flatShading: true } ) // side
+        new THREE.MeshPhongMaterial( { color: color1, flatShading: true } ), // front
+        new THREE.MeshPhongMaterial( { color: colorblack, flatShading: true } ) // side
     ];
 
     //BACKGROUND
@@ -74,13 +82,13 @@ function init(){
     var is_touch_device = 'ontouchstart' in document.documentElement;
     //redirect to homepage if a touch device
     if(is_touch_device){
-        text3 ='TOUCH TO ENTER';
-        window.addEventListener( 'ontouchend', clickThrough );
+        text3 = text4;
+        // window.addEventListener( 'ontouchend', clickThrough );
     }
 
     //LIGHT
 
-    spotLight = new THREE.SpotLight( 0xffffff, 5 );
+    spotLight = new THREE.SpotLight( color1, 5 );
     spotLight.position.set( 0, 0, 10 );
     spotLight.angle = Math.PI / 6;
     spotLight.penumbra = 0;
@@ -105,11 +113,6 @@ function init(){
     container.appendChild( renderer.domElement );
     renderer.domElement.addEventListener( 'mousemove', onMouseMove.bind(this) );
 
-    // to apply renderer to the whole scene, without a container
-    // renderer.setSize( window.innerWidth, window.innerHeight );
-    // document.body.appendChild( renderer.domElement );
-    // window.addEventListener( 'mousemove', onMouseMove.bind(this) );
-
 }
 
 function startup() {
@@ -119,16 +122,9 @@ function startup() {
     const ambient = new THREE.AmbientLight( 0xffffff, 0.05 );
     scene.add( ambient );
 
-    // lightHelper = new THREE.SpotLightHelper( spotLight );
-    // scene.add( lightHelper );
-
-    // shadowCameraHelper = new THREE.CameraHelper( spotLight.shadow.camera );
-    // scene.add( shadowCameraHelper );
-
     cube.position.set(0, 0, 3);
     camera.position.set(0, 10, 17);
     cube.castShadow = true;
-    // scene.add( cube );
 
     backgroundObj.receiveShadow = true;
     scene.add( backgroundObj );
@@ -259,9 +255,6 @@ function onWindowResize() {
 
     container.style.height = height;
     container.style.width = width;
-
-    // width = window.innerWidth;
-    // height = window.innerHeight;
 
     camera.aspect = width / height;
     camera.updateProjectionMatrix();

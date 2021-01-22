@@ -2,10 +2,15 @@
 
 var translateDistance;
 var images, focusPos;
+var offset = 50;
 
-init()
+init();
+onWindowResize();
+update();
 
 function init(){
+
+    offset = 50
 
     document.addEventListener('keydown', function(e) {
         switch (e.key) {
@@ -18,13 +23,6 @@ function init(){
         }
     });
 
-    let title = document.getElementById("title");
-
-    if(title!=undefined){
-        title.addEventListener('mouseenter', linkHover);
-        title.addEventListener('mouseleave', linkLeave);
-    }
-
     var is_touch_device = 'ontouchstart' in document.documentElement;
     //redirect to homepage if a touch device
     if(is_touch_device){
@@ -34,28 +32,29 @@ function init(){
         }
     }
 
+    window.addEventListener( 'resize', onWindowResize.bind(this), false );
 
-    // window.addEventListener("resize",setupOffset)
 
     images = document.getElementsByClassName('imgLink');
+
+    //make all the images the same width so that the panning behaviour works well
+    for(var i=0; i<images.length; i++){
+        images[i].firstElementChild.style.width = "'" + images[0].firstElementChild.clientWidth + "px'"
+        if(images[i].firstElementChild.style.width == "" || images[i].firstElementChild.clientWidth == 0){
+            images[i].firstElementChild.style.width = "" + images[0].firstElementChild.clientHeight*1.3 + "px"
+        }
+    }
+
     focusPos = Array.prototype.indexOf.call(images, images['focus']);
 
-    update();
-
-}
-
-function linkHover(e){
-    e.target.parentElement.style.background = 'black';
-    e.target.parentElement.lastElementChild.style.border= "5px solid black"
-}
-
-function linkLeave(e){
-    e.target.parentElement.style.background = 'white';
-    e.target.parentElement.lastElementChild.style.border= "5px solid #1e1e1e"
 }
 
 function update(){
-    var translateValue = 100*((images.length/2)-focusPos) - 50;
+
+    images[focusPos].id = 'focus';
+    images[focusPos].style.zIndex = '10';
+
+    var translateValue = 100*((images.length/2)-focusPos) - offset;
 
     if (focusPos == images.length-1){
         document.getElementById('arrow-right').style.visibility = 'hidden';
@@ -82,17 +81,11 @@ function leftClick(){
 
     document.getElementById('arrow-right').style.visibility = 'visible';
 
-    if (focusPos > 0){
+    images[focusPos].id = 'unfocus';
+    images[focusPos].style.zIndex = '0';
+    focusPos = focusPos - 1;
 
-        images[focusPos].id = 'unfocus';
-        images[focusPos].style.zIndex = '0';
-        focusPos = focusPos - 1;
-        images[focusPos].id = 'focus';
-        images[focusPos].style.zIndex = '10';
-
-        update();
-
-    }
+    update();
 
 }
 
@@ -100,17 +93,23 @@ function rightClick(){
 
     document.getElementById('arrow-left').style.visibility = 'visible';
 
-    if (focusPos < images.length-1){
+    images[focusPos].id = 'unfocus';
+    images[focusPos].style.zIndex = '0';
+    focusPos = focusPos + 1;
 
-        images[focusPos].id = 'unfocus';
-        images[focusPos].style.zIndex = '0';
-        focusPos = focusPos + 1;
-        images[focusPos].id = 'focus';
-        images[focusPos].style.zIndex = '10';
+    update();
 
-        update();
+}
 
-    }
+function onWindowResize() {
+
+    width = document.getElementsByClassName('imageFocus')[0].clientWidth;
+    height = document.getElementsByClassName('imageFocus')[0].clientHeight;
+
+    isMiniGallery = document.getElementsByClassName('mini').length
+
+    offset = 50
+    update();
 
 }
 
