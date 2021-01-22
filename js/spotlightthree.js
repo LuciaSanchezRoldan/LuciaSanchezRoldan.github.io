@@ -136,6 +136,14 @@ function onMouseMove( e ) {
     var x = e.clientX;
     var y = e.clientY;
 
+    if(x==undefined){
+        var h = container.clientHeight;
+        var tH = document.documentElement.clientHeight
+
+        x = e.touches[0].clientX * h/tH;
+        y = e.touches[0].clientY;
+    }
+
     var scale = 17;
 
     spotLight.target.position.x = -scale + 2 * scale*x/width;

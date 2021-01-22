@@ -712,6 +712,10 @@ hr.style-4 {
     font-size: 50px;
   }
 
+  #twitter-icon{
+    width: 70px;
+  }
+
   .statusInfo{
     font-size: 40px;
     line-height: 40px;
@@ -722,7 +726,7 @@ hr.style-4 {
   }
 
   .title4{
-    font-size: 40px;
+    font-size: 4pc;
   }
 
   .tall {
@@ -735,6 +739,7 @@ hr.style-4 {
 
   .formLabel{
     font-size: 40px;
+    width: 300px;
   }
 
   .homelinks{
