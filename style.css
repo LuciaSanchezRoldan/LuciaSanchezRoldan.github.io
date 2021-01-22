@@ -40,6 +40,16 @@ a:focus {
   text-align: center; 
 }
 
+.columns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.column{
+  width:48%;
+}
+
 .flex{
   display: flex;
 }
@@ -91,7 +101,7 @@ hr.style-2 {
   margin-top: 30px;
   margin-bottom: 30px;
   height: 0;
-  border: 1px solid white;
+  border: 1px solid #58ac89;
 }
 
 hr.style-3 {
@@ -344,6 +354,29 @@ hr.style-4 {
   color: black;
 }
 
+.creditLink{
+  text-decoration: underline 3px;
+}
+
+.creditLink:hover, .creditLink:focus{
+  font-weight: 900;
+  color: #58ac89
+}
+
+.creditLink2{
+  text-decoration: underline overline 3px;
+  display: initial;
+  color: #58ac89;
+  font-weight: 800;
+}
+
+.creditLink2:hover, .creditLink2:focus{
+  font-weight: 900;
+  background: #58ac89;
+  outline:2px solid #58ac89;
+  color:white;
+}
+
 .date{
   color: white;
   font-weight: 900;
@@ -440,6 +473,7 @@ hr.style-4 {
 
 /* text for production pages */
 .productionTitle {
+  color:#58ac89;
   text-align: left;
   font-size: 20px;
   letter-spacing: 2px;
@@ -456,6 +490,7 @@ hr.style-4 {
 }
 
 .seeMore {
+  color:#58ac89;
   margin-top: 40px;
   text-align: center;
   font-size: 30px;
