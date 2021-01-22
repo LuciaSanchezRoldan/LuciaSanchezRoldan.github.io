@@ -52,6 +52,7 @@ a:focus {
 
 .flex{
   display: flex;
+  height: -webkit-fill-available;
 }
 
 .fitContent{
@@ -459,6 +460,7 @@ hr.style-4 {
   background: #58ac89;
   color: white;
   display: table;
+  font-weight: 500;
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -710,7 +712,6 @@ hr.style-4 {
   }
 
   .button{
-    font-weight: 500;
     font-size: 50px;
   }
 
