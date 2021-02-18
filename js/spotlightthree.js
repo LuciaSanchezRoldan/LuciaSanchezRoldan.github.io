@@ -38,10 +38,12 @@ function clickThrough(e){
     if(e==undefined){
         return;
     }
-    window.location.href = 'main.html';
+    window.location.href = 'index.html';
 }
 
 function init(){
+
+    window.location.href = 'index.html';
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color( color1 );

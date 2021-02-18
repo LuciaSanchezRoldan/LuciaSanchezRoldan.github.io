@@ -1,44 +1,85 @@
-<!DOCTYPE html>
-<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
 <html>
 	
 	<head>
-		
 		<title>Luc&iacute;a S&#225;nchez Rold&#225;n</title>
 		<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8"/>
-		<script src="js/three.min.js"></script>
-			
+		<style>
+			body{
+		    overflow-y: scroll;
+		    width: 100%;
+			}
+		</style>
 	</head>
 	
 	<body>
 
-		<div class="titleBoxIndex">
-			<a id="title" class="title1" href="../main.html"> LUC&#205;A S&#193;NCHEZ ROLD&#193;N </a>
-			<hr class = "style-1"></hr>
+        <div class="header">
+			<div style="z-index: 1;">
+		
+				<div class="titleBox leftMargin topMargin">
+					<div class="title"> <a class="highlight" href="index.html"> LUC&#205;A S&#193;NCHEZ ROLD&#193;N </a> </div>
+					<div class="subTitle"> Lighting Designer | Lighting Programmer </div>
+				</div>
+				
+				<div class="linksContainer"> 
+					<div class="innerLinkContainer rightMargin">
+						<div class="homelinks highlight "> WORK </div>
+						<a class="homelinks " href="about.html"> ABOUT </a> 
+						<a class="homelinks " href="contact.html"> CONTACT </a>
+						<a class="homelinks" href="credits.html"> CREDITS </a>
+					</div>
+				</div> 
+
+				<hr class="style-1"></hr>
+
+			</div>
+        </div>
+
+		<div class="container flex tall portfolioSpacer marginTop">
+
+			<div class="arrow">
+				<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewbox="-11 -13 40 66">
+					<polygon class="whiteArrow" id="arrow-left" onclick="leftClick()" points="0, 20, 20 0, 20, 40" />
+				</svg>
+			</div>
+
+			<div class="imageFocus">
+				<a href="shows/romeo.html" class="imgLink" id="focus"> <img class="img" src="../assets/images/romeo/romeo_1.jpg" alt="ROMEO AND JULIET - LIGHTING DESIGNER"> </a>
+				<a href="shows/invisibles.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/invisibles/invisibles_1.jpg" alt="INVISIBLES - LIGHTING DESIGNER"> </a>
+				<a href="shows/niceties.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/niceties/niceties_1.jpg" alt="THE NICETIES - LIGHTING DESIGNER"> </a>
+				<a href="shows/julie.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/julie/julie_2.jpg" alt="MS JULIE - LIGHTING DESIGNER"> </a>
+				<a href="shows/linda.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/linda/linda_1.jpg" alt="LINDA - LIGHTING DESIGNER"> </a>
+				<a href="shows/loveAndMoney.html" class="imgLink" id="unfocus"> <img class="img" src="../assets/images/loveAndMoney/loveAndMoney_4.jpg" alt="LOVE AND MONEY - LIGHTING DESIGNER"> </a>
+				<a href="shows/theFirst.html" class="imgLink" id="unfocus"> <img class="img" src="../assets/images/theFirst/theFirst_9.jpg" alt="THE FIRST - LIGHTING DESIGNER"> </a>
+				<a href="shows/rambert.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/rambert/rambert_1.jpg" alt="RAMBERT: CURDLED GLASS - LIGHTING DESIGNER"> </a>
+				<a href="shows/dearMarieStopes.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/marie/marie_2.jpg" alt="DEAR MARIE STOPES - LIGHTING AND VIDEO DESIGNER"> </a>
+				<a href="shows/howWeBegin.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/howWeBegin/howWeBegin_10.jpg" alt="HOW WE BEGIN - LIGHTING DESIGNER"> </a>
+				<a href="shows/elders.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/elders/elders_1.jpg" alt="ELDERS - LIGHTING DESIGNER"> </a>
+				<a href="shows/cathy.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/cathy/cathy_3.jpg" alt="CATHY - LIGHTING DESIGNER"> </a>
+				<a href="shows/caesar.html"class="imgLink" id="unfocus"> <img class="img" src="../assets/images/caesar/caesar_1.jpg" alt="JULIUS CAESAR - LIGHTING DESIGNER"> </a>
+				<a href="shows/sonEtLumiere.html" class="imgLink" id="unfocus"> <img class="img" src="../assets/images/sonEtLumiere/sonEtLumiere_1.jpg" alt="SON ET LUMIERE - LIGHTING DESIGNER"> </a>
+			</div>
+
+			<div class="arrow">
+				<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewbox="-11 -13 40 66">
+					<polygon class="whiteArrow" id="arrow-right" onclick="rightClick()" points="0 0, 20 20, 0 40" />
+				</svg>
+			</div>
+
+			<!-- <div id="gradLayer1" class="gradLayer"></div>
+			<div id="gradLayer2" class="gradLayer"></div>
+			<div id="gradLayer3" class="gradLayer"></div> -->
+
+			<!-- <div id="gradLayer4" class="gradLayer"></div> -->
+
+					
 		</div>
-		<script src="../js/titleHover.js"></script>
 
-		<div class="fullScreen">
-			<div id="container">
-				<script type="module" src="js/spotlightthree.js"></script>
-			</div>
+		<div style='display: grid;'>
+			<div id="info" class="marginTop marginBottom"> stuff in here </div>
 		</div>
 
-
-		<!-- <div class="fullScreen">
-
-			<div class="titleBoxIndex">
-				<a id="title" class="title1" href="../main.html"> LUC&#205;A S&#193;NCHEZ ROLD&#193;N </a>
-				<hr class = "style-1"></hr>
-			</div>
-	
-			<script src="../js/titleHover.js"></script>
-
-			<div id="container">
-				<script type="module" src="js/spotlightthree.js"></script>
-			</div>
-		</div> -->
+		<script src="js/gallery.js"></script>
 
 	</body>
 </html>

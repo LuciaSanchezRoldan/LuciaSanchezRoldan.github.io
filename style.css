@@ -534,8 +534,7 @@ hr.style-4 {
 /* header title */
 .header {
   display: grid;
-  height: fit-content;
-  height: -moz-fit-content;
+  height: 13vh;
 }
 
 .titleBox {
@@ -743,7 +742,7 @@ hr.style-4 {
   }
 
   .tall {
-    height: calc(100% - 550px);
+    height: 70vh;
   }
 
   #info{
