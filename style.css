@@ -72,7 +72,7 @@ a:focus {
 }
 
 .tall{
-  height: 70vh;
+  height: 60vh;
 }
 
 .mini{
@@ -144,6 +144,40 @@ hr.style-4 {
 #twitter-icon{
   width: 30px;
   margin-right: 10px;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  margin: auto;
+
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-top: 20px solid white;
+}
+
+/*************************************************/
+/*                 'grid' toolkit                */
+/*************************************************/
+
+.grid{
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gridLink{
+  margin: auto;
+  margin-bottom: 25px;
+  width:29%
+}
+
+.gridImg{
+  width:100%;
+  height:auto;
 }
 
 /*************************************************/
@@ -226,7 +260,8 @@ hr.style-4 {
 
 .img{
   display: inline-block;
-  height:100%;
+  height: 100%;
+  width: 100%;
   transition: opacity 1s, transform 1s;
 }
 
@@ -351,6 +386,19 @@ hr.style-4 {
   font-weight: 400;
   color: white;
   background: black;;
+}
+
+.title7{
+  text-align: center;
+  font-size: 25px;
+  padding: 9px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  font-weight: 400;
+  color: white;
+  background: #58ac89;
+  display: flex;
 }
 
 /*subtitle*/
@@ -550,7 +598,6 @@ hr.style-4 {
 /* header title */
 .header {
   display: grid;
-  height: 20vh;
 }
 
 .titleBox {
@@ -760,10 +807,6 @@ hr.style-4 {
 
   .title4{
     font-size: 4pc;
-  }
-
-  .tall {
-    height: 70vh;
   }
 
   #info{
