@@ -39,6 +39,10 @@ a:focus {
   text-align: center; 
 }
 
+.centerText {
+  text-align: center; 
+}
+
 .columns{
   display: flex;
   flex-direction: row;
@@ -220,8 +224,9 @@ hr.style-4 {
 }
 
 .img{
+  display: inline-block;
   height:100%;
-  width:auto;
+  transition: opacity 1s, transform 1s;
 }
 
 .headshot{
@@ -669,6 +674,11 @@ hr.style-4 {
 
 .full {
   width: 100%;
+}
+
+.showImage{
+  max-height: 90vh;
+  max-width: 90vw;
 }
 
 .fullScreen {
