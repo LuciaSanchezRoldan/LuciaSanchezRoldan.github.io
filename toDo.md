@@ -1,16 +1,12 @@
 
+Bring over the new gallery logic for aspect ratio for the aspect ratio
 
-more black and white in the spotlight splashpage, less grey, to match with the rest of the website more.
+Add a grid to index.html
 
-home:
-click to enter in 3d, lucia sanchez roldan
-move the spotlight around with the touch, have the click through in 2d
+Add work links etc. to the sticky
 
-main:
-crosscheck the gallery more on PC and different screen resolutions
+Max height viewport to photos on splashpages
 
-add a bit of colour
+Reorganise the minigalleries to match order on index.html
 
-add a credits page
-
-all done
+Maybe do a swipe if I'm interested in learning how.

@@ -4,7 +4,6 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-family: 'apercu';
   overflow-x: hidden;
 }
@@ -180,18 +179,28 @@ hr.style-4 {
 }
 
 .arrow{
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 50px;
+}
+
+.imgAspect{
+  display: inline-block;
+  max-height: 100%;
   margin: auto;
-  padding: 10px;
-  width: 5%;
-  z-index: 1;
 }
 
 .imageFocus{
   display: flex;
+  max-height: 70vh;
   width: 90%;
   justify-content: space-around;
   overflow: hidden;
   z-index: 1;
+}
+
+.marginTop{
+  margin-top: 15px;
 }
 
 #focus{
@@ -204,7 +213,8 @@ hr.style-4 {
 }
 
 .imgLink {
-  display: inline-block;
+  max-height: inherit;
+  display: flex;
   height:100%;
   transition: opacity 1s, transform 1s;
 }
@@ -534,7 +544,7 @@ hr.style-4 {
 /* header title */
 .header {
   display: grid;
-  height: 13vh;
+  height: 20vh;
 }
 
 .titleBox {
