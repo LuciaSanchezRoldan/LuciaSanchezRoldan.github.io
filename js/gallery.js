@@ -114,8 +114,8 @@ function updateWidth(){
         images[i].style.maxWidth = "" + document.getElementById("imageFocus").clientWidth + "px"
     }
 
-    for(var i=0; i<imageWraps.length; i++){
-        imageWraps[i].style.minWidth = "" + document.getElementById("imageFocus").clientWidth + "px"
-    }
+    // for(var i=0; i<imageWraps.length; i++){
+    //     imageWraps[i].style.minWidth = "" + document.getElementById("imageFocus").clientWidth + "px"
+    // }
 
 }
