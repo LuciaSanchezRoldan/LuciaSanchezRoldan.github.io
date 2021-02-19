@@ -77,6 +77,7 @@ a:focus {
 
 .mini{
   height: calc(250px);
+  margin: 10px;
 }
 
 /* tool to allow for inline-block text image controls */

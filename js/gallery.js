@@ -37,14 +37,6 @@ function init(){
 
     images = document.getElementsByClassName('imgLink');
 
-    //make all the images the same width so that the panning behaviour works well
-    for(var i=0; i<images.length; i++){
-        images[i].firstElementChild.style.width = "'" + images[0].firstElementChild.clientWidth + "px'"
-        if(images[i].firstElementChild.style.width == "" || images[i].firstElementChild.clientWidth == 0){
-            images[i].firstElementChild.style.width = "" + images[0].firstElementChild.clientHeight*1.3 + "px"
-        }
-    }
-
     focusPos = Array.prototype.indexOf.call(images, images['focus']);
 
 }
@@ -70,6 +62,7 @@ function update(){
     images[focusPos].style.transform = "translateX(" + translateValue + "%) scale(" + 1 + ")"
 
     updateText();
+    updateWidth();
 }
 
 function updateText(){
@@ -106,10 +99,23 @@ function onWindowResize() {
     width = document.getElementsByClassName('imageFocus')[0].clientWidth;
     height = document.getElementsByClassName('imageFocus')[0].clientHeight;
 
-    isMiniGallery = document.getElementsByClassName('mini').length
-
     offset = 50
     update();
 
 }
 
+function updateWidth(){
+
+    var images = document.getElementsByClassName('imgAspect');
+    var imageWraps = document.getElementsByClassName('imgLink');
+
+    // make all the images the same width so that the panning behaviour works well
+    for(var i=0; i<images.length; i++){
+        images[i].style.maxWidth = "" + document.getElementById("imageFocus").clientWidth + "px"
+    }
+
+    for(var i=0; i<imageWraps.length; i++){
+        imageWraps[i].style.minWidth = "" + document.getElementById("imageFocus").clientWidth + "px"
+    }
+
+}
