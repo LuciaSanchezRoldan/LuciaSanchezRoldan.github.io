@@ -1,9 +1,9 @@
 
 Bring over the new gallery logic for aspect ratio for the aspect ratio //////////////
 
-Add a grid to index.html 
+Add a grid to index.html ////////////////////////////////////////////////////////////
 
-Add work links etc. to the sticky 
+Add work links etc. to the sticky ////////////////////////////////////////////////////////////
 
 Max height viewport to photos on splashpages ////////////////////////////////////////
 

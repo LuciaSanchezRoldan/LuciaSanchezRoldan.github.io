@@ -657,6 +657,16 @@ hr.style-4 {
   font-weight: 300;
 }
 
+.homelinksShort {
+  display: inline-block;
+  width: 22%;
+  text-align: left;
+  line-height: 15px;
+  font-size: 15px;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
 /*************************************************/
 /* breather margins for image pages that need it */
 /*************************************************/
