@@ -1,5 +1,5 @@
 
-## Hi Lucia!
+## Hi Lucia! :smiley:
 
 To get started, open your terminal on mac.
 in the terminal use
@@ -21,10 +21,10 @@ so any changes I've made to the project get added to your local copy.
 
 open the project in visual studio code, and make any changes you like! Feel free to contact me anytime.
 
-When you're done, you need to commit the changes with a message. In SOURCE CONTROL tab, you will see a dropdown which says `V Changes`. Hover over that, and there's a `+`.
+When you're done, you need to commit the changes with a message. In the `SOURCE CONTROL` tab, you will see a dropdown which says :arrow_down_small:`Changes`. Hover over that, and there's a :heavy_plus_sign:.
 Click it, and write a Message in the Message box saying what you've done.
 
-Once thats done, you should be able to click the tick. Do make the changes go online, you then need to click `...`
+Once thats done, you should be able to click the :heavy_check_mark:. To make the changes go online, you then need to click `...`
 under that dropdown menu, go to `Pull,Push`, and select `Push`. You're done!
 
 If for whatever reason that doesn't work, you can do the same steps in terminal. add all the files with a message by running 
