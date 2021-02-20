@@ -425,6 +425,17 @@ hr.style-4 {
   color: #1e1e1e;
 }
 
+.bioInfo{
+  margin: auto;
+  display: table;
+  line-height: 24px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 200;
+  color: #1e1e1e;
+  
+}
+
 .left{
   text-align: justify;
 }
@@ -647,6 +658,12 @@ hr.style-4 {
   z-index: 1;
 }
 
+.linksContainer2 {
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
 .innerLinkContainer {
   display: inline-block;
 }
@@ -663,8 +680,8 @@ hr.style-4 {
 
 .homelinksShort {
   display: inline-block;
-  width: 22%;
-  text-align: left;
+  width: 20%;
+  text-align: center;
   line-height: 15px;
   font-size: 15px;
   letter-spacing: 3px;
@@ -794,12 +811,20 @@ hr.style-4 {
     padding-right: 20px;
   }
 
+  .tall{
+    height: 30vh;
+  }
+
   .title2{
     font-size: 60px;
   }
 
+  .inputBox{
+    font-size: 40px;
+  }
+
   .showInfo{
-    padding-top: 120px;
+    padding-top: 12vh;
   }
 
   .button{
@@ -811,8 +836,13 @@ hr.style-4 {
   }
 
   .statusInfo{
-    font-size: 40px;
-    line-height: 40px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .bioInfo{
+    font-size: 34px;
+    line-height: 34px;
   }
 
   .title{
@@ -820,10 +850,19 @@ hr.style-4 {
   }
 
   .title4{
-    font-size: 4pc;
+    font-size: 50px;;
+  }
+
+  .title7{
+    font-size: 60px;
+  }
+
+  .gridImg{
+    font-size: 50px;
   }
 
   #info{
+    padding: 60px;
     font-size: 40px;
   }
 
@@ -837,10 +876,16 @@ hr.style-4 {
     padding: 20px;
   }
 
+
+  .homelinksShort{
+    font-size: 40px;
+    padding:20px
+  }
+
   .subTitle {
     text-align: left;
     line-height: 30px;
-    font-size: 30px;
+    font-size: 35px;
   }
 
   .productionTitle {
@@ -848,7 +893,11 @@ hr.style-4 {
   }
   
   .text {
-    font-size: 30px;
+    font-size: 20px;
+  }
+
+  .megan{
+    font-size: 40px;
   }
 }
 
