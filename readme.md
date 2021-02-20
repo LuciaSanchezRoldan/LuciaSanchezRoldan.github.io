@@ -21,7 +21,7 @@ so any changes I've made to the project get added to your local copy.
 
 open the project in visual studio code, and make any changes you like! Feel free to contact me anytime.
 
-When you're done, you need to commit the changes with a message. In `SOURCE CONTROL` tab, you will see a dropdown which says `V Changes`. Hover over that, and there's a `+`.
+When you're done, you need to commit the changes with a message. In the `SOURCE CONTROL` tab, you will see a dropdown which says `V Changes`. Hover over that, and there's a `+`.
 Click it, and write a Message in the Message box saying what you've done.
 
 Once thats done, you should be able to click the tick. To make the changes go online, you then need to click `...`
