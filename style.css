@@ -205,28 +205,29 @@ hr.style-4 {
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-  /* visibility: hidden; */
-  background-color: white;
-  color: black;
-  text-align: center;
-  padding: 15px;
-  border: black solid 5px;
+    /* visibility: hidden; */
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    border: black solid 5px;
 
-  /* Position the tooltip text */
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  transform: translateX(-50%);
-  left: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 16px;
-  letter-spacing: 3px;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    transform: translateX(-50%);
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 3px;
 
-  /* Fade in tooltip */
-  opacity: 0;
-  transition: opacity 0.3s;
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+    width: 90%;
 }
 
 /* Tooltip arrow */
@@ -252,9 +253,12 @@ hr.style-4 {
   border-color: white transparent transparent transparent;
 }
 
+.tooltipTrigger{
+  z-index:10;
+}
+
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
-  pointer-events: none;
   visibility: visible;
   opacity: 1;
 }
