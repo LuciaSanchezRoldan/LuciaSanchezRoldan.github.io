@@ -1,5 +1,5 @@
 
-## Hi Lucia!
+## Hi Lucia! :smiley:
 
 To get started, open your terminal on mac.
 in the terminal use
