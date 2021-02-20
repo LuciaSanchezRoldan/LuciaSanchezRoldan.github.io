@@ -4,7 +4,6 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-family: 'apercu';
   overflow-x: hidden;
 }
@@ -40,6 +39,10 @@ a:focus {
   text-align: center; 
 }
 
+.centerText {
+  text-align: center; 
+}
+
 .columns{
   display: flex;
   flex-direction: row;
@@ -69,11 +72,12 @@ a:focus {
 }
 
 .tall{
-  height: 70vh;
+  height: 60vh;
 }
 
 .mini{
   height: calc(250px);
+  margin: 10px;
 }
 
 /* tool to allow for inline-block text image controls */
@@ -142,6 +146,44 @@ hr.style-4 {
   margin-right: 10px;
 }
 
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  margin: auto;
+
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-top: 20px solid white;
+}
+
+/*************************************************/
+/*                 'grid' toolkit                */
+/*************************************************/
+
+.grid{
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gridLink{
+  margin: auto;
+  margin-bottom: 25px;
+  width:29%
+}
+
+.gridImg{
+  width:100%;
+  height:auto;
+  background: #58ac89;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+
 /*************************************************/
 /*               'gallery' toolkit               */
 /*************************************************/
@@ -180,18 +222,28 @@ hr.style-4 {
 }
 
 .arrow{
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 50px;
+}
+
+.imgAspect{
+  display: inline-block;
+  max-height: 100%;
   margin: auto;
-  padding: 10px;
-  width: 5%;
-  z-index: 1;
 }
 
 .imageFocus{
   display: flex;
+  max-height: 70vh;
   width: 90%;
   justify-content: space-around;
   overflow: hidden;
   z-index: 1;
+}
+
+.marginTop{
+  margin-top: 15px;
 }
 
 #focus{
@@ -204,14 +256,17 @@ hr.style-4 {
 }
 
 .imgLink {
-  display: inline-block;
+  max-height: inherit;
+  display: flex;
   height:100%;
   transition: opacity 1s, transform 1s;
 }
 
 .img{
-  height:100%;
-  width:auto;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  transition: opacity 1s, transform 1s;
 }
 
 .headshot{
@@ -337,6 +392,19 @@ hr.style-4 {
   background: black;;
 }
 
+.title7{
+  text-align: center;
+  font-size: 25px;
+  padding: 9px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  font-weight: 400;
+  color: white;
+  background: #58ac89;
+  display: flex;
+}
+
 /*subtitle*/
 .subTitle {
   text-align: right;
@@ -355,6 +423,17 @@ hr.style-4 {
   letter-spacing: 1px;
   font-weight: 200;
   color: #1e1e1e;
+}
+
+.bioInfo{
+  margin: auto;
+  display: table;
+  line-height: 24px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 200;
+  color: #1e1e1e;
+  
 }
 
 .left{
@@ -534,7 +613,6 @@ hr.style-4 {
 /* header title */
 .header {
   display: grid;
-  height: 13vh;
 }
 
 .titleBox {
@@ -580,6 +658,12 @@ hr.style-4 {
   z-index: 1;
 }
 
+.linksContainer2 {
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
 .innerLinkContainer {
   display: inline-block;
 }
@@ -588,6 +672,16 @@ hr.style-4 {
   display: inline-block;
   padding: 7px;
   text-align: left;
+  line-height: 15px;
+  font-size: 15px;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+.homelinksShort {
+  display: inline-block;
+  width: 20%;
+  text-align: center;
   line-height: 15px;
   font-size: 15px;
   letter-spacing: 3px;
@@ -661,6 +755,11 @@ hr.style-4 {
   width: 100%;
 }
 
+.showImage{
+  max-height: 90vh;
+  max-width: 90vw;
+}
+
 .fullScreen {
   position: absolute;
   background: #0f0f0f;
@@ -712,12 +811,20 @@ hr.style-4 {
     padding-right: 20px;
   }
 
+  .tall{
+    height: 30vh;
+  }
+
   .title2{
     font-size: 60px;
   }
 
+  .inputBox{
+    font-size: 40px;
+  }
+
   .showInfo{
-    padding-top: 120px;
+    padding-top: 12vh;
   }
 
   .button{
@@ -729,8 +836,13 @@ hr.style-4 {
   }
 
   .statusInfo{
-    font-size: 40px;
-    line-height: 40px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .bioInfo{
+    font-size: 34px;
+    line-height: 34px;
   }
 
   .title{
@@ -738,14 +850,19 @@ hr.style-4 {
   }
 
   .title4{
-    font-size: 4pc;
+    font-size: 50px;;
   }
 
-  .tall {
-    height: 70vh;
+  .title7{
+    font-size: 60px;
+  }
+
+  .gridImg{
+    font-size: 50px;
   }
 
   #info{
+    padding: 60px;
     font-size: 40px;
   }
 
@@ -759,10 +876,16 @@ hr.style-4 {
     padding: 20px;
   }
 
+
+  .homelinksShort{
+    font-size: 40px;
+    padding:20px
+  }
+
   .subTitle {
     text-align: left;
     line-height: 30px;
-    font-size: 30px;
+    font-size: 35px;
   }
 
   .productionTitle {
@@ -770,7 +893,11 @@ hr.style-4 {
   }
   
   .text {
-    font-size: 30px;
+    font-size: 20px;
+  }
+
+  .megan{
+    font-size: 40px;
   }
 }
 

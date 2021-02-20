@@ -1,4 +1,14 @@
 let title = document.getElementById("title");
+let links = document.getElementsByClassName("homelinksShort");
+let header = document.getElementById("header");
+
+for(var i=0; i < links.length; i++){
+    var link = links[i]
+    if(link!=undefined){
+        link.addEventListener('mouseenter', linkHover);
+        link.addEventListener('mouseleave', linkLeave);
+    }
+}
 
 if(title!=undefined){
     title.addEventListener('mouseenter', linkHover);
@@ -6,11 +16,11 @@ if(title!=undefined){
 }
 
 function linkHover(e){
-    e.target.parentElement.style.background = 'black';
-    e.target.parentElement.lastElementChild.style.border= "5px solid black"
+    header.style.background = 'black';
+    header.lastElementChild.style.border= "5px solid black"
 }
 
 function linkLeave(e){
-    e.target.parentElement.style.background = 'white';
-    e.target.parentElement.lastElementChild.style.border= "5px solid #79bca0"
+    header.style.background = 'white';
+    header.lastElementChild.style.border= "5px solid #79bca0"
 }
