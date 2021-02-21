@@ -122,11 +122,22 @@ function updateWidth(){
     var images = document.getElementsByClassName('imgAspect');
     var imageWraps = document.getElementsByClassName('imgLink');
 
+    var isMini = document.getElementsByClassName('mini');
+    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+    
     // make all the images the same width so that the panning behaviour works well
-    for(var i=0; i<images.length; i++){
-        images[i].style.maxWidth = "" + document.getElementById("imageFocus").clientWidth + "px"
+    if(isSafari && isMini!=undefined){
+        for(var i=0; i<images.length; i++){
+            height = document.getElementById("imageFocus").clientHeight;
+            images[i].style.maxWidth = "" + height*1.2 + "px"
+        }
     }
 
+    else{
+        for(var i=0; i<images.length; i++){
+            images[i].style.maxWidth = "" + document.getElementById("imageFocus").clientWidth + "px"
+        }
+    }
     // for(var i=0; i<imageWraps.length; i++){
     //     imageWraps[i].style.minWidth = "" + document.getElementById("imageFocus").clientWidth + "px"
     // }
