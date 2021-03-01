@@ -6,7 +6,7 @@
     "serve": "es-dev-server --node-resolve --watch"
   },
   "dependencies": {
-    "three": "^0.123.0"
+    "three": "^0.125.0"
   },
   "devDependencies": {
     "es-dev-server": "^2.0.2"
